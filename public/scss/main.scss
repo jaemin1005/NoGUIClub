@@ -1,0 +1,136 @@
+@import "./fonts.scss", "./colors.scss";
+
+$--px-height-header : 30px;
+$--px-left-margin-header : 10px;
+
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.text-center-wrapper{
+  width: min-content;
+  height: min-content;
+  margin: 0 auto;
+}
+
+#header {
+  width: 100vw;
+  min-height: $--px-height-header;
+  background-color: $--color-header-background;
+  display: flex;
+  align-items: center;
+
+
+  h1 {
+    margin: 0 auto;
+    display: inline;
+    font-size: 0.9rem;
+    color: $--color-header-font;
+    white-space: nowrap;
+    @extend %roboto-bold
+  }
+}
+
+#main {
+  height: calc(100vh - $--px-height-header);
+  width: 100vw;
+  background-color: $--color-main-background;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#search {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  > div:first-child{
+    width: min-content;
+    height: min-content;
+    @extend %roboto-regular;
+    font-size: $--font-main-command-size;
+    color: $--color-main-font;
+    margin-right: 2px;
+  }
+
+  > div:last-child{
+    width: 0.5rem;
+    height: 100%;
+    background-color: gray;
+  }
+}
+
+#main-view{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    width: min-content;
+    height: min-content;
+    @extend %roboto-regular;
+    font-size: $--font-main-command-size;
+    color: $--color-main-font;
+    white-space: nowrap;
+  }
+}
+
+
+.only-gui-btn{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+#btn-wrapper {
+  width: 113px;
+  height: min-content;
+  margin-left: $--px-left-margin-header;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+
+  > div:nth-child(1){
+    background-color: $--color-red-btn;
+  }
+
+  > div:nth-child(2){
+    background-color: $--color-yellow-btn;
+  }
+
+  > div:nth-child(3){
+    background-color: $--color-green-btn;
+  }
+}
+
+.main-text{
+  width: min-content;
+  height: min-content;
+  @extend %roboto-regular;
+  font-size: $--font-main-command-size;
+  color: $--color-main-font;
+  white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

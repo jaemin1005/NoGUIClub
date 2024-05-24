@@ -1,0 +1,122 @@
+#header h1 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.main-text, #main-view > div, #search > div:first-child {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.text-center-wrapper {
+  width: -moz-min-content;
+  width: min-content;
+  height: -moz-min-content;
+  height: min-content;
+  margin: 0 auto;
+}
+
+#header {
+  width: 100vw;
+  min-height: 30px;
+  background-color: #2C2B29;
+  display: flex;
+  align-items: center;
+}
+#header h1 {
+  margin: 0 auto;
+  display: inline;
+  font-size: 0.9rem;
+  color: #6C6B69;
+  white-space: nowrap;
+}
+
+#main {
+  height: calc(100vh - 30px);
+  width: 100vw;
+  background-color: #020303;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#search {
+  width: 100%;
+  height: -moz-min-content;
+  height: min-content;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#search > div:first-child {
+  width: -moz-min-content;
+  width: min-content;
+  height: -moz-min-content;
+  height: min-content;
+  font-size: 0.8rem;
+  color: #F4F4F4;
+  margin-right: 2px;
+}
+#search > div:last-child {
+  width: 0.5rem;
+  height: 100%;
+  background-color: gray;
+}
+
+#main-view {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+#main-view > div {
+  width: -moz-min-content;
+  width: min-content;
+  height: -moz-min-content;
+  height: min-content;
+  font-size: 0.8rem;
+  color: #F4F4F4;
+  white-space: nowrap;
+}
+
+.only-gui-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+#btn-wrapper {
+  width: 113px;
+  height: -moz-min-content;
+  height: min-content;
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-around;
+  position: absolute;
+}
+#btn-wrapper > div:nth-child(1) {
+  background-color: #EC6A5E;
+}
+#btn-wrapper > div:nth-child(2) {
+  background-color: #F4BF4F;
+}
+#btn-wrapper > div:nth-child(3) {
+  background-color: #61C554;
+}
+
+.main-text {
+  width: -moz-min-content;
+  width: min-content;
+  height: -moz-min-content;
+  height: min-content;
+  font-size: 0.8rem;
+  color: #F4F4F4;
+  white-space: nowrap;
+}/*# sourceMappingURL=main.css.map */
