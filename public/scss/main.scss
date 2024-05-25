@@ -118,6 +118,26 @@ $--px-left-margin-header : 10px;
   white-space: nowrap;
 }
 
+.input-text{
+  width : 0px;
+  height: min-content;
+  background-color: $--color-main-background;
+  color: $--color-main-font;
+  white-space: nowrap;
+  outline: none;
+  border: 0px;
+  @extend %roboto-regular;
+  transition: none;
+  animation: none; 
+  caret-color: transparent;
+
+  &::focus {
+    outline: none;
+    transition: none;
+    animation: none; 
+    caret-color: transparent;
+  }
+}
 
 
 

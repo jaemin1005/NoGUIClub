@@ -4,7 +4,7 @@
   font-style: normal;
 }
 
-.main-text, #main-view > div, #search > div:first-child {
+.input-text, .main-text, #main-view > div, #search > div:first-child {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -119,4 +119,24 @@
   font-size: 0.8rem;
   color: #F4F4F4;
   white-space: nowrap;
+}
+
+.input-text {
+  width: 0px;
+  height: -moz-min-content;
+  height: min-content;
+  background-color: #020303;
+  color: #F4F4F4;
+  white-space: nowrap;
+  outline: none;
+  border: 0px;
+  transition: none;
+  animation: none;
+  caret-color: transparent;
+}
+.input-text::focus {
+  outline: none;
+  transition: none;
+  animation: none;
+  caret-color: transparent;
 }/*# sourceMappingURL=main.css.map */
