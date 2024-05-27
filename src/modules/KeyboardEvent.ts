@@ -1,4 +1,4 @@
-import { env } from "process";
+import { TestCheckCommand } from "./CheckCommand.js";
 
 /** Input KeyDown Type */
 type KeyDownFunc = (elem : HTMLInputElement, idx : number) => number;
@@ -7,8 +7,14 @@ type KeyDownFunc = (elem : HTMLInputElement, idx : number) => number;
 const commands : Array<string> = [];
 /** command 임시 저장 */
 let stash : string = "";
-let isComposition : boolean = false
 
+/**
+ * * 아래 방향키에 대한 이벤트
+ * * commands를 탐색하는 동작을 한다. idx => idx+1
+ * @param elem 호출한 Element
+ * @param idx index
+ * @returns 
+ */
 let KeyDownArrowUp : KeyDownFunc = function(elem, idx){
   
   if(idx == 0){
@@ -24,7 +30,13 @@ let KeyDownArrowUp : KeyDownFunc = function(elem, idx){
   return idx;
 }
 
-
+/**
+ * * 위 방향키에 대한 이벤트
+ * * commands를 탐색하는 이벤트이다 idx => idx-1;
+ * @param elem 호출한 Element
+ * @param idx cur index
+ * @returns 
+ */
 let KeyDownArrowDown : KeyDownFunc = function(elem, idx){
   if(commands.length == 0 || idx == commands.length){
     return idx;
@@ -34,31 +46,32 @@ let KeyDownArrowDown : KeyDownFunc = function(elem, idx){
   return idx;
 }
 
-
+/** 
+ * * EnterKey에 대한 이벤트
+ * * input value를 클리어 해준다.
+ */
 let KeyDownEnter : KeyDownFunc = function(elem, idx){
   commands[commands.length] = elem.value;
+  TestCheckCommand(elem.value);
   elem.value = "";
   return commands.length;
 }
 
-export function StartComposition(){
-  isComposition = true;
-}
+JSON.stringify
 
-export function EndComposition(){
-  isComposition = false;
-}
-
-
+/**
+ * * 키 down 이벤트에 대한 함수
+ * @returns 
+ */
 export function KeyDownEvent() {
   let curIdx : number = commands.length;
 
   return function(this:HTMLInputElement, event : KeyboardEvent) : any{
 
- 
+    //* 문자가 조합중인 상태이면 빠져나가자
     if(event.isComposing == true) return;
     
-    
+    //* 키 입력에 따른 이벤트 :) 
     switch(event.key){
       case "ArrowUp":
         event.preventDefault();
