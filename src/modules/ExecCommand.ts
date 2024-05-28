@@ -1,29 +1,40 @@
-import { findSourceMap } from "module";
+import { ExecCreateCmd } from "./ExecCreateCommand";
+
+
+//TODO 제네릭으로 수정하기.. Hmm
+//* ExeCmd = (reqData : ReqData, command : ReqData.command) => void  
+//* Command : SearchCmd | CreateCmd | HelpCmd, T에서 중 하나라는 걸 나타내고 싶다. 
 
 function ExecuteCommand(reqData : ReqData) : void {
-  const command = reqData.command.command;
+  const command = reqData.command;
 
-  switch(command){
+  switch(command.command){
     case "search":
-      ExecSearchCmd(reqData);
+      ExecSearchCmd(reqData, command);
       break;  
     case "create":
-      ExecCreateCmd(reqData);
+      ExecCreateCmd(reqData, command);
       break;
     case "help":
-      ExecHelpCmd(reqData);
+      ExecHelpCmd(reqData, command);
       break;  
   }
 }
 
-function ExecSearchCmd(reqData : ReqData){
+function ExecSearchCmd(reqData : ReqData, command : SearchCmd){
+  const subCommand = command.subCommand;
+  switch(subCommand){
+    case "-f":
+      break;
+    case "-g":
+      break;
+    case null:
+      break;
+  }
+}
+
+
+function ExecHelpCmd(reqData : ReqData, command : HelpCmd){
 
 }
 
-function ExecCreateCmd(reqData : ReqData){
-
-}
-
-function ExecHelpCmd(reqData : ReqData){
-
-}
