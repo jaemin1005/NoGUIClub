@@ -14,14 +14,10 @@ export function UpdateView(arrStr : string[]) : void {
   }
 }
 
-/** 화면을 클리어하고 임시 stash에 children들을 저장한다. */
-export function CleareView(){
-  let children = $mainDOM.children;
-  stash.length = 0;
+export function WriteView(){
 
-  while($mainDOM.children.length > 0){
-    stash[stash.length] = children[0];
-    children[0].remove();
-  }
 }
 
+export function CreateHeader(){
+
+}
