@@ -1,6 +1,6 @@
 type PostType = "head" | "body";
 
-
+/** 글 작성을 위한 준비 */
 export function ReadyWritePost(elem : Element){
   const header : Array<Element> = [] 
 
@@ -21,6 +21,13 @@ export function ReadyWritePost(elem : Element){
   }
 }
 
+/**
+ * * 글 쓰기 작업을 한다.
+ * * type에 따라 header에 적을지 body에 추가할지 정한다.
+ * @param elem 
+ * @param type 
+ * @returns 
+ */
 export function WritePost(elem : Element, type : PostType){
   let curElem : null | Element = null;
 

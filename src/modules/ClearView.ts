@@ -1,4 +1,4 @@
-export function CleareView(elem : Element, stash : Array<Element>){
+export function ClearView(elem : Element, stash : Array<Element>){
   let children = elem.children;
   stash.length = 0;
 
