@@ -5,12 +5,12 @@ interface SearchCmd {
 
 interface CreateCmd {
   command : "create";
-  subCommand? : "-m" | null;
+  subCommand : "-m" | null;
 }
 
 interface HelpCmd{
   command : "help";
-  subCommand? : "-d" | null;
+  subCommand : "-d" | null;
 }
 
 type Command = SearchCmd | CreateCmd | HelpCmd;
