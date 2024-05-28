@@ -1,12 +1,24 @@
-type GetDOM = () => HTMLElement;
+class MapDOM {
 
-export const GetCommandElem : GetDOM =  function(){
-  const $elem = document.getElementById("command-text");
+  mapDOM : Map<string, Element>
 
-  if($elem){
-    return $elem;
+  constructor(){ 
+    this.mapDOM = new Map(); 
+    
+    const elements = document.querySelectorAll('[id]');
+    for(let elem of Array.from(elements)){
+      this.mapDOM.set(elem.id, elem);
+    }
   }
-  else{
-    throw new Error("command-text의 Element를 찾을 수 없음");
+
+  GetDOM(key : string) : Element | null {
+    if(this.mapDOM.has(key)){
+      return this.mapDOM.get(key) as Element;
+    }
+    else
+      return null;
   }
 }
+
+
+export const mapDOM = new MapDOM();
