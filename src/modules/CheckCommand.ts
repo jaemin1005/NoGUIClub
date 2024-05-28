@@ -1,25 +1,4 @@
-interface SearchCmd {
-  command : "search";
-  subCommand : "-f" | "-g" | null;
-}
 
-interface CreateCmd {
-  command : "create";
-  subCommand? : "-m" | null;
-}
-
-interface HelpCmd{
-  command : "help";
-  subCommand? : "-d" | null;
-}
-
-type Command = SearchCmd | CreateCmd | HelpCmd;
-
-interface reqData {
-  header : "ngc";
-  command : Command;
-  value : string | null;
-}
 
 /** Command인제 체커하는 함수 */
 function IsCommand(command : string, subCommand : string | null) : Command | null{
@@ -47,12 +26,11 @@ function IsCommand(command : string, subCommand : string | null) : Command | nul
 }
 
 /**
- * * CheckCommand 확인
- * * 
+ * * 단순 Command의 유무를 확인합니다.
  * @param strCommand
  * @returns 
  */
-export function CheckCommand(strCommand : string) : reqData | null{
+export function CheckCommand(strCommand : string) : ReqData | null{
   
   const splitCommand = strCommand.split(" ");
 
@@ -73,6 +51,7 @@ export function CheckCommand(strCommand : string) : reqData | null{
   }
 
   //* Default
+  //* Command가 아닐 경우 default로 Search Command를 보낸다. 
   else{
     const command : SearchCmd = {command : "search", subCommand: null}
     return {header : "ngc", command : command , value : strCommand};
@@ -83,4 +62,20 @@ export function TestCheckCommand(cmd : string){
   console.dir(CheckCommand(cmd));
 }
 
+/**
+ * * 올바른 Command인지 체크
+ * @param reqData 
+ * @returns 
+ */
+export function CorrectCommand(reqData : ReqData) : boolean{
+  const command = reqData.command.command;
 
+  switch(command){
+    case "search": 
+      return reqData.value !== null ? true : false;
+    case "create":
+      return true;
+    case "help":
+      return true;
+  }
+}

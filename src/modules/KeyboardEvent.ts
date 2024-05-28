@@ -52,12 +52,9 @@ let KeyDownArrowDown : KeyDownFunc = function(elem, idx){
  */
 let KeyDownEnter : KeyDownFunc = function(elem, idx){
   commands[commands.length] = elem.value;
-  TestCheckCommand(elem.value);
   elem.value = "";
   return commands.length;
 }
-
-JSON.stringify
 
 /**
  * * 키 down 이벤트에 대한 함수
@@ -88,7 +85,6 @@ export function KeyDownEvent() {
     }
   }  
 }
-
 
 export function KeyBackspaceEvent(){
   const $commadText = document.getElementById("command-text")!;
