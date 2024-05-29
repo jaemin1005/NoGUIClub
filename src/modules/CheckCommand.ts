@@ -58,10 +58,6 @@ export function CheckCommand(strCommand : string) : ReqData | null{
   }
 }
 
-export function TestCheckCommand(cmd : string){
-  console.dir(CheckCommand(cmd));
-}
-
 /**
  * * 올바른 Command인지 체크
  * @param reqData 
