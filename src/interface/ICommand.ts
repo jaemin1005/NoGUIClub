@@ -1,16 +1,16 @@
 interface SearchCmd {
   command : "search";
-  subCommand : "-f" | "-g" | null;
+  subCommand : SearchSubCmd;
 }
 
 interface CreateCmd {
   command : "create";
-  subCommand : "-m" | null;
+  subCommand : CreateSubCmd;
 }
 
 interface HelpCmd{
   command : "help";
-  subCommand : "-d" | null;
+  subCommand : HelpSubCmd;
 }
 
 type Command = SearchCmd | CreateCmd | HelpCmd;
@@ -20,3 +20,7 @@ interface ReqData {
   command : Command;
   value : string | null;
 }
+
+type CreateSubCmd = "-m" | null;
+type HelpSubCmd = "-d" | null;  
+type SearchSubCmd = "-f" | "-g" | null;
