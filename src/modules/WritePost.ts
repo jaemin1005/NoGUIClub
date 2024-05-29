@@ -23,12 +23,12 @@ export function ReadyWritePost(elem : Element){
 
 /**
  * * 글 쓰기 작업을 한다.
- * * type에 따라 header에 적을지 body에 추가할지 정한다.
+ * * type에 따라 header, body에 글을 쓴다.
  * @param elem 
  * @param type 
  * @returns 
  */
-export function WritePost(elem : Element, type : PostType){
+export function WritePost(elem : Element, type : PostType) : Element{
   let curElem : null | Element = null;
 
   if(type === "head"){
@@ -40,9 +40,7 @@ export function WritePost(elem : Element, type : PostType){
     elem.appendChild(curElem);
   }
 
-  return function(input : string){
-    curElem.textContent = input;
-  } 
+  return curElem;
 }
 
 

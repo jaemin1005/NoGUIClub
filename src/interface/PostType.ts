@@ -1,0 +1,1 @@
+type PostType = "head" | "body";
