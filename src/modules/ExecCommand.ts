@@ -5,7 +5,7 @@ import { ExecCreateCmd } from "./ExecCreateCommand";
 //* ExeCmd = (reqData : ReqData, command : ReqData.command) => void  
 //* Command : SearchCmd | CreateCmd | HelpCmd, T에서 중 하나라는 걸 나타내고 싶다. 
 
-function ExecuteCommand(reqData : ReqData) : void {
+export function ExecuteCommand(reqData : ReqData) : void {
   const command = reqData.command;
 
   switch(command.command){
