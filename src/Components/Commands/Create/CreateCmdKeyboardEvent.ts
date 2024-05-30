@@ -43,9 +43,20 @@ export class CreateKeyboardEvent {
         const input = event.target as HTMLInputElement;
         const command = input.value;
 
-        //* 나가기 명령어
-        if(command === EnumCreateEscCmd.quit){
-          
+        switch(command){
+          //* 나가기 명령어
+          case EnumCreateEscCmd.quit:
+            break;
+          //* 저장 명령어
+          case EnumCreateEscCmd.save:
+            break;
+          //* 임시저장 명령어
+          //* 아직 구현 (X)
+          case EnumCreateEscCmd.stash:
+            break;
+          //* 에러를 화면에 보낼까?
+          default:
+            break;
         }
       }
     }
