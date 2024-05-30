@@ -1,4 +1,5 @@
-function CreateElement<T extends keyof HTMLElementTagNameMap>(customElem : ICustomElement<T>) : HTMLElementTagNameMap[T] {
+/** ICustomElement를 이용하여 element를 생성한다 */
+export function CreateElement<T extends keyof HTMLElementTagNameMap>(customElem : ICustomElement<T>) : HTMLElementTagNameMap[T] {
   const elem = document.createElement(customElem.elem);
 
   if(customElem.property !== undefined){
