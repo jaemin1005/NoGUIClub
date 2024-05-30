@@ -1,7 +1,9 @@
-import { TestCheckCommand } from "./CheckCommand.js";
+import { ExecCmd } from "../Components/ExecCommandComponent.js";
 
 /** Input KeyDown Type */
 type KeyDownFunc = (elem : HTMLInputElement, idx : number) => number;
+type KeyFunc = (elem : HTMLInputElement) => void;
+
 
 /** command 저장 */
 const commands : Array<string> = [];
@@ -63,7 +65,7 @@ let KeyDownEnter : KeyDownFunc = function(elem, idx){
 export function KeyDownEvent() {
   let curIdx : number = commands.length;
 
-  return function(this:HTMLInputElement, event : KeyboardEvent) : any{
+  return function(this:HTMLInputElement, event : KeyboardEvent) : void{
 
     //* 문자가 조합중인 상태이면 빠져나가자
     if(event.isComposing == true) return;
@@ -80,6 +82,7 @@ export function KeyDownEvent() {
         break;
       case "Enter":
         event.preventDefault();
+        ExecCmd(this.value);
         curIdx = KeyDownEnter(this, curIdx);
         break;
     }
@@ -117,3 +120,4 @@ export function AdjustWidth(){
   }
 }
 
+export const keydownEvent = KeyDownEvent();

@@ -1,6 +1,10 @@
-import { CheckCommand, CorrectCommand } from "../modules/CheckCommand";
-import { ExecuteCommand } from "../modules/ExecCommand";
+import { CheckCommand, CorrectCommand } from "../modules/CheckCommand.js";
+import { ExecuteCommand } from "../modules/ExecCommand.js";
 
+//* Command 실행 절차.
+//* (1) Header가 있는지, Command 체크 => CheckCommand
+//* (2) SubCommand가 있는지 => CorrectCommand
+//* (3) Command 실행 => ExecuteCommand
 export function ExecCmd(value : string){
   const isCommand = CheckCommand(value);
   if(isCommand){
@@ -13,7 +17,6 @@ export function ExecCmd(value : string){
       
     }
   }
-
 
   else{
     //TODO 에러처리를 해야 된다. 
