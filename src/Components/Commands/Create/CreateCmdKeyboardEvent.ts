@@ -11,14 +11,12 @@ export class CreateKeyboardEvent {
 
   //* Esc Event에 필요한 프로퍼티 :) 
   isEsc: boolean
-  tempCurElem: Element | null;
   tempText : string;
 
   constructor(mainElem: Element, start: "head" | "body") {
     this.curElem = WritePost(mainElem, start);
     this.mainElem = mainElem;
     this.isEsc = false;
-    this.tempCurElem = null;
     this.tempText = "";
   }
 
@@ -72,25 +70,22 @@ export class CreateKeyboardEvent {
   EscapeEvent(event: KeyboardEvent) {
     if (event.isComposing === true || event.key !== "Escape") return;
 
-
     this.isEsc = !this.isEsc
     const elem = mapDOM.GetDOM("command-type")!;
     const input = event.target as HTMLInputElement;
 
     if (this.isEsc === true) {
       elem.textContent = contentType.esc;
-      this.tempCurElem = this.curElem;
       this.tempText = input.value;
       input.value = "";
     }
 
     else {
-      this.curElem = this.tempCurElem!;
       if (this.curElem.id === "post-header") {
         elem.textContent = contentType.header;
       }
       else {
-        this.curElem.id = contentType.body;
+        elem.textContent = contentType.body;
       }
       input.value = this.tempText;
     }
