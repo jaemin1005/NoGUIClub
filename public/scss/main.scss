@@ -40,6 +40,7 @@ $--px-left-margin-header : 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: scroll;
 }
 
 #search {
