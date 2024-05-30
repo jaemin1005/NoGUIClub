@@ -1,9 +1,9 @@
 import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent.js";
-import { mapDOM } from "./GetDOM.js";
-import { keydownEvent } from "./KeyboardEvent.js";
-import { contentType } from "./ContentType.js";
-import { CreateElement } from "./CreateElement.js";
-import { AddChildInRootElement } from "./AddChildInRootElement.js";
+import { mapDOM } from "../../../modules/GetDOM.js";
+import { keydownEvent } from "../../../modules/KeyboardEvent.js";
+import { contentType } from "../../../modules/ContentType.js";
+import { CreateElement } from "../../../modules/CreateElement.js";
+import { AddChildInRootElement } from "../../../modules/AddChildInRootElement.js";
 
 /**
  * * Create의 명령어에 의해 호출된 함수

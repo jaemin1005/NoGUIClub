@@ -1,5 +1,5 @@
 import { CheckCommand, CorrectCommand } from "../modules/CheckCommand.js";
-import { ExecuteCommand } from "../modules/ExecCommand.js";
+import { ExecuteCommand } from "./Commands/ExecCommand.js";
 
 //* Command 실행 절차.
 //* (1) Header가 있는지, Command 체크 => CheckCommand
