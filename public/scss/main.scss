@@ -73,7 +73,7 @@ $--px-left-margin-header : 10px;
 
   > div {
     width: min-content;
-    height: min-content;
+    height: $--font-main-command-size;
     @extend %roboto-regular;
     font-size: $--font-main-command-size;
     color: $--color-main-font;
