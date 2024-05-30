@@ -8,11 +8,16 @@ export function ReadyWritePost(elem : Element){
 
   //* 머리글
   const headerDiv = document.createElement("div");
-  headerDiv.id = "post-header";   
+  headerDiv.id = "post-header";
+  headerDiv.style.color = "rgb(255,255,0)";
+  headerDiv.style.fontSize = "1.5rem";
+  headerDiv.style.height = "1.5rem";
   header[header.length] = headerDiv;
 
   //* 공백
   header[header.length] = document.createElement("div");
+  header[header.length] = document.createElement("div");
+
 
   for(let child of header){
     elem.appendChild(child);
