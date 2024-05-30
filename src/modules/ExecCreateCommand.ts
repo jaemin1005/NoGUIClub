@@ -35,8 +35,9 @@ export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
     contentTypeElem.textContent = contentType.header;
   }
 
-
   input.removeEventListener("keydown", keydownEvent);
   input.addEventListener("keydown",(event) =>  createKeyboardEvent.EnterEvent(event));
-  input.addEventListener("input", (event) => createKeyboardEvent.InputEvent(event));  
+  input.addEventListener("input", (event) => createKeyboardEvent.InputEvent(event));
+  input.addEventListener("keydown", (event) => createKeyboardEvent.EscapeEvent(event));  
 }
+
