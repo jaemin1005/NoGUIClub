@@ -13,7 +13,7 @@ export class CreateKeyboardEvent {
   }
 
   EnterEvent(event : KeyboardEvent){
-    if(event.isComposing == false) return;
+    if(event.isComposing == true) return;
 
     if(event.key === "Enter"){   
       const elem = mapDOM.GetDOM("content-type");
