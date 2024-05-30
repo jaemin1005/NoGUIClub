@@ -1,5 +1,3 @@
-type PostType = "head" | "body";
-
 /** 글 작성을 위한 준비 */
 export function ReadyWritePost(elem : Element){
   const header : Array<Element> = [] 
