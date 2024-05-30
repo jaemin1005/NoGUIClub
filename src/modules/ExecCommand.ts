@@ -1,4 +1,4 @@
-import { ExecCreateCmd } from "./ExecCreateCommand";
+import { ExecCreateCmd } from "./ExecCreateCommand.js";
 
 
 //TODO 제네릭으로 수정하기.. Hmm
