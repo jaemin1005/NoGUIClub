@@ -1,5 +1,5 @@
 import { mapDOM } from "../../../modules/GetDOM.js";
-import { WritePost } from "../../../modules/WritePost.js";
+import { WritePost } from "./WritePost.js";
 import { contentType } from "../../../modules/ContentType.js";
 import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd.js";
 
