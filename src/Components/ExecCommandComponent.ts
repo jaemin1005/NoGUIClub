@@ -1,5 +1,6 @@
 import { CheckCommand, CorrectCommand } from "../modules/CheckCommand.js";
 import { ExecuteCommand } from "./Commands/ExecCommand.js";
+import { AddErrorInView } from "./Commands/ErrorCommand.js";
 
 //* Command 실행 절차.
 //* (1) Header가 있는지, Command 체크 => CheckCommand
@@ -14,11 +15,12 @@ export function ExecCmd(value : string){
 
     else{
       //TODO 에러처리를 해야 된다.
-      
+      AddErrorInView("옳바른 값이 아닙니다", [`${value}을 다시 확인해 보세요`]);
     }
   }
 
   else{
     //TODO 에러처리를 해야 된다. 
+    AddErrorInView("주요 커맨드가 아닙니다.", [`${value}은 옳바른 커맨드가 아닙니다.`]);
   }
 }
