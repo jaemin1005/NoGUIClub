@@ -2,6 +2,7 @@ import { mapDOM } from "./GetDOM.js";
 import { WritePost } from "./WritePost.js";
 import { contentType } from "./ContentType.js";
 
+//* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent {
    
   curElem : Element;
@@ -16,7 +17,7 @@ export class CreateKeyboardEvent {
     if(event.isComposing == true) return;
 
     if(event.key === "Enter"){   
-      const elem = mapDOM.GetDOM("content-type");
+      const elem = mapDOM.GetDOM("command-type");
       
       if(elem){
         if(elem.textContent === contentType.header){
@@ -25,7 +26,7 @@ export class CreateKeyboardEvent {
         }
 
         else if(elem.textContent === contentType.body){
-          elem.textContent = contentType.header;
+          elem.textContent = contentType.body;
           this.curElem = WritePost(this.mainElem, "body");
         }
 
@@ -33,6 +34,10 @@ export class CreateKeyboardEvent {
       else{
         throw Error("잘못된 content-type");
       }
+
+      //* Enter시 초기화 :) 
+      let inputElem = event.target as HTMLInputElement
+      inputElem.value = "";
     }
   }
 
