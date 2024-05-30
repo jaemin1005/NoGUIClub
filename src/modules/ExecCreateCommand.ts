@@ -1,9 +1,9 @@
 import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent.js";
 import { mapDOM } from "./GetDOM.js";
-import { ReadyWritePost } from "./WritePost.js";
 import { keydownEvent } from "./KeyboardEvent.js";
 import { contentType } from "./ContentType.js";
-
+import { CreateElement } from "./CreateElement.js";
+import { AddChildInRootElement } from "./AddChildInRootElement.js";
 
 /**
  * * Create의 명령어에 의해 호출된 함수
@@ -18,7 +18,7 @@ export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
   const contentTypeElem = mapDOM.GetDOM("command-type")!;
   let createKeyboardEvent = null;
 
-  ReadyWritePost(main);
+  InitView();
 
   //* -m 서브명령어일 경우
   if(subCommand === "-m"){
@@ -41,3 +41,21 @@ export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
   input.addEventListener("keydown", (event) => createKeyboardEvent.EscapeEvent(event));  
 }
 
+function InitView(){
+
+  let createHeadElem : ICustomElement<"div"> = {
+    elem : "div",
+    property : {
+      id : "post-header"
+    },
+    style : {
+      color : "rgb(255,255,0)",
+      fontSize : "1.5rem",
+      height : "1.5rem"
+    }
+  }
+
+
+  let headElem = CreateElement(createHeadElem);
+  AddChildInRootElement(null, null, headElem, null, null);
+}
