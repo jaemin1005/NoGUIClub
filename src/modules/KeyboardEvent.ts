@@ -2,7 +2,7 @@ import { ExecCmd } from "../Components/ExecCommandComponent.js";
 
 /** Input KeyDown Type */
 type KeyDownFunc = (elem : HTMLInputElement, idx : number) => number;
-type KeyFunc = (elem : HTMLInputElement) => void;
+
 
 
 /** command 저장 */

@@ -1,10 +1,9 @@
 import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent.js";
 import { mapDOM } from "./GetDOM.js";
 import { ReadyWritePost } from "./WritePost.js";
-import { KeyDownEvent } from "./KeyboardEvent.js";
+import { keydownEvent } from "./KeyboardEvent.js";
 import { contentType } from "./ContentType.js";
-import { getEventListeners } from "events";
-//type ExecCreateCmd = (reqData : ReqData, event : KeyboardEvent) => void
+
 
 /**
  * * Create의 명령어에 의해 호출된 함수
@@ -36,7 +35,8 @@ export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
     contentTypeElem.textContent = contentType.header;
   }
 
-  input.removeEventListener("keydown", KeyDownEvent());
+
+  input.removeEventListener("keydown", keydownEvent);
   input.addEventListener("keydown",(event) =>  createKeyboardEvent.EnterEvent(event));
   input.addEventListener("input", (event) => createKeyboardEvent.InputEvent(event));  
 }
