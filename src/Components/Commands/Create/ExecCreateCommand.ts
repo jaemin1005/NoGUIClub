@@ -1,9 +1,10 @@
-import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent.js";
 import { mapDOM } from "../../../modules/GetDOM.js";
-import { keydownEvent } from "../../../modules/KeyboardEvent.js";
 import { contentType } from "../../../modules/ContentType.js";
 import { CreateElement } from "../../../modules/CreateElement.js";
 import { AddChildInRootElement } from "../../../modules/AddChildInRootElement.js";
+import { eventController } from "../../EventController.js";
+import { CreateEvent } from "../../../modules/ArrCreateEvent.js";
+import { ClearView } from "../../../modules/ClearView.js";
 
 /**
  * * Create의 명령어에 의해 호출된 함수
@@ -14,31 +15,28 @@ import { AddChildInRootElement } from "../../../modules/AddChildInRootElement.js
 export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
   const subCommand = command.subCommand;
   const main = mapDOM.GetDOM("main-view")!
-  const input = mapDOM.GetDOM("command-text")! as HTMLInputElement; 
   const contentTypeElem = mapDOM.GetDOM("command-type")!;
-  let createKeyboardEvent = null;
+  let style : "head" | "body" | null;
 
+  ClearView(main);
   InitView();
 
   //* -m 서브명령어일 경우
   if(subCommand === "-m"){
-    createKeyboardEvent = new CreateKeyboardEvent(main, "body");
-
     const headElem = document.getElementById("post-header")!
     contentTypeElem.textContent = contentType.body;
     headElem.textContent = reqData.value;
+    style = "body";
   }
 
   //* -m 명령어일 경우
   else{
-    createKeyboardEvent = new CreateKeyboardEvent(main, "head");
     contentTypeElem.textContent = contentType.header;
+    style = "head";
   }
 
-  input.removeEventListener("keydown", keydownEvent);
-  input.addEventListener("keydown",(event) =>  createKeyboardEvent.EnterEvent(event));
-  input.addEventListener("input", (event) => createKeyboardEvent.InputEvent(event));
-  input.addEventListener("keydown", (event) => createKeyboardEvent.EscapeEvent(event));  
+  eventController.AddStash(CreateEvent(main, style));
+  
 }
 
 function InitView(){
