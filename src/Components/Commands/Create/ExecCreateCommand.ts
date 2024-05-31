@@ -2,8 +2,11 @@ import { mapDOM } from "../../../modules/GetDOM.js";
 import { contentType } from "../../../modules/ContentType.js";
 import { CreateElement } from "../../../modules/CreateElement.js";
 import { AddChildInRootElement } from "../../../modules/AddChildInRootElement.js";
+<<<<<<< Updated upstream
 import { eventController } from "../../EventController.js";
 import { CreateEvent } from "../../../modules/ArrCreateEvent.js";
+=======
+>>>>>>> Stashed changes
 import { ClearView } from "../../../modules/ClearView.js";
 
 /**
