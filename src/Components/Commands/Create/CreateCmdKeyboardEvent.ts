@@ -2,6 +2,7 @@ import { mapDOM } from "../../../modules/GetDOM.js";
 import { WritePost } from "./WritePost.js";
 import { contentType } from "../../../modules/ContentType.js";
 import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd.js";
+import { ESCQuitFunc } from "./EscQuitFunc.js";
 
 //* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent {
@@ -44,6 +45,8 @@ export class CreateKeyboardEvent {
         switch(command){
           //* 나가기 명령어
           case EnumCreateEscCmd.quit:
+            elem.textContent = "";
+            ESCQuitFunc(this.mainElem);
             break;
           //* 저장 명령어
           case EnumCreateEscCmd.save:
