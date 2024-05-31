@@ -1,13 +1,15 @@
 import { AdjustWidth, keydownEvent } from "./KeyboardEvent.js";
 
-const keydown : IEventMap<"keydown", HTMLInputElement> = {
-  type : "keydown",
-  func : keydownEvent
-}
+export function NormalEvent(){
+  const keydown : IEventMap<"keydown", HTMLInputElement> = {
+    type : "keydown",
+    func : keydownEvent
+  }
+  
+  const adjust : IEventMap<"keydown", HTMLInputElement> = {
+    type : "keydown",
+    func : AdjustWidth()
+  }
 
-const adjust : IEventMap<"keydown", HTMLInputElement> = {
-  type : "keydown",
-  func : AdjustWidth()
+  return [keydown, adjust];
 }
-
-export const arrNormalMap = [keydown, adjust];
