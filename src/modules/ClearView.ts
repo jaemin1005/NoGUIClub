@@ -1,13 +1,16 @@
 import { IsHTMLElement } from "./IsHTMLElement";
 
-export function ClearView(elem : Element, stash : Array<Element>){
-  let children = elem.children;
-  stash.length = 0;
+/**
+ * * rootElem의 자식들의 상태 변경
+ * * Display block => Display none으로 바꿔주는 작업을 합니다.
+ * @param rootElem 
+ */
+export function ClearView(rootElem : Element){
+  let children = rootElem.children;
 
   for(let elem of Array.from(children)){
     if(IsHTMLElement(elem)){
       elem.style.display = "none";
-      stash[stash.length] = elem;
     }
   }
 }
