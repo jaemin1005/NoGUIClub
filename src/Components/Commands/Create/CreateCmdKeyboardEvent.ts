@@ -4,6 +4,7 @@ import { contentType } from "../../../modules/ContentType.js";
 import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd.js";
 import { ESCQuitFunc } from "./EscQuitFunc.js";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName.js";
+import { EscSaveFunc } from "./EscSaveFunc.js";
 
 //* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent {
@@ -51,6 +52,8 @@ export class CreateKeyboardEvent {
             break;
           //* 저장 명령어
           case EnumCreateEscCmd.save:
+            elem.textContent = "";
+            EscSaveFunc(this.mainElem);
             break;
           //* 임시저장 명령어
           //* 아직 구현 (X)
