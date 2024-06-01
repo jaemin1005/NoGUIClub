@@ -14,6 +14,7 @@ export function WritePost(elem : Element, type : PostType) : Element{
 
   else{
     curElem = document.createElement("div");
+    curElem.className = "bodyText";
     elem.appendChild(curElem);
   }
 
