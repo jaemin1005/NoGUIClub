@@ -3,6 +3,7 @@ import { WritePost } from "./WritePost.js";
 import { contentType } from "../../../modules/ContentType.js";
 import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd.js";
 import { ESCQuitFunc } from "./EscQuitFunc.js";
+import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName.js";
 
 //* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent {
@@ -95,7 +96,7 @@ export class CreateKeyboardEvent {
     }
 
     else {
-      if (this.curElem.id === "post-header") {
+      if (this.curElem.id === enumPostElemName.header) {
         elem.textContent = contentType.header;
       }
       else {

@@ -5,6 +5,8 @@ import { AddChildInRootElement } from "../../../modules/AddChildInRootElement.js
 import { eventController } from "../../EventController.js";
 import { CreateEvent } from "../../../modules/ArrCreateEvent.js";
 import { ClearView } from "../../../modules/ClearView.js";
+import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName.js";
+import { customDate } from "../../../modules/CustomDate.js";
 
 /**
  * * Create의 명령어에 의해 호출된 함수
@@ -23,7 +25,7 @@ export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
 
   //* -m 서브명령어일 경우
   if(subCommand === "-m"){
-    const headElem = document.getElementById("post-header")!
+    const headElem = document.getElementById(enumPostElemName.header)!
     contentTypeElem.textContent = contentType.body;
     headElem.textContent = reqData.value;
     style = "body";
@@ -44,7 +46,7 @@ function InitView(){
   let createHeadElem : ICustomElement<"div"> = {
     elem : "div",
     property : {
-      id : "post-header"
+      id : `${enumPostElemName.header}`,
     },
     style : {
       color : "rgb(255,255,0)",
