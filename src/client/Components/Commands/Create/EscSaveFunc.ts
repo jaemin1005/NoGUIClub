@@ -1,8 +1,8 @@
-import { DeleteView } from "../../../modules/DeleteView.js";
-import { OnDisplayView } from "../../../modules/OnDisplayView.js";
-import { eventController } from "../../EventController.js";
-import { NormalEvent } from "../../../modules/ArrNormalEvent.js";
-import { ConvertPostIntoData } from "../../../modules/ConvertPostIntoData.js";
+import { DeleteView } from "../../../modules/DeleteView";
+import { OnDisplayView } from "../../../modules/OnDisplayView";
+import { eventController } from "../../EventController";
+import { NormalEvent } from "../../../modules/ArrNormalEvent";
+import { ConvertPostIntoData } from "../../../modules/ConvertPostIntoData";
 
 //* 1. 현재 작성한글을 서버로 전송한다.
 //* 2. 명령어를 되돌린다.

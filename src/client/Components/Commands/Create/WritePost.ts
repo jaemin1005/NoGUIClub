@@ -1,4 +1,4 @@
-import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName.js";
+import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 
 /**
  * * 글 쓰기 작업을 한다.

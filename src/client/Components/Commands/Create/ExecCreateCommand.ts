@@ -1,12 +1,12 @@
-import { mapDOM } from "../../../modules/GetDOM.js";
-import { contentType } from "../../../modules/ContentType.js";
-import { CreateElement } from "../../../modules/CreateElement.js";
-import { AddChildInRootElement } from "../../../modules/AddChildInRootElement.js";
-import { eventController } from "../../EventController.js";
-import { CreateEvent } from "../../../modules/ArrCreateEvent.js";
-import { ClearView } from "../../../modules/ClearView.js";
-import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName.js";
-import { customDate } from "../../../modules/CustomDate.js";
+import { mapDOM } from "../../../modules/GetDOM";
+import { contentType } from "../../../modules/ContentType";
+import { CreateElement } from "../../../modules/CreateElement";
+import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
+import { eventController } from "../../EventController";
+import { CreateEvent } from "../../../modules/ArrCreateEvent";
+import { ClearView } from "../../../modules/ClearView";
+import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
+
 
 /**
  * * Create의 명령어에 의해 호출된 함수

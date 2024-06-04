@@ -1,7 +1,7 @@
-import { ForceFocus } from "./modules/Focus.js";
-import { AdjustWidth, keydownEvent} from "./modules/KeyboardEvent.js";
-import { eventController } from "./Components/EventController.js";
-import { NormalEvent } from "./modules/ArrNormalEvent.js";
+import { ForceFocus } from "./modules/Focus";
+import { AdjustWidth, keydownEvent} from "./modules/KeyboardEvent";
+import { eventController } from "./Components/EventController";
+import { NormalEvent } from "./modules/ArrNormalEvent";
 
 
 const $input = document.getElementById("command-text")! as HTMLInputElement;

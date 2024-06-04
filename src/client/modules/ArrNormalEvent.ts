@@ -1,4 +1,4 @@
-import { AdjustWidth, keydownEvent } from "./KeyboardEvent.js";
+import { AdjustWidth, keydownEvent } from "./KeyboardEvent";
 
 export function NormalEvent(){
   const keydown : IEventMap<"keydown", HTMLInputElement> = {

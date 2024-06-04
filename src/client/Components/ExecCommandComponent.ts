@@ -1,6 +1,6 @@
-import { CheckCommand, CorrectCommand } from "../modules/CheckCommand.js";
-import { ExecuteCommand } from "./Commands/ExecCommand.js";
-import { AddErrorInView } from "./Commands/ErrorCommand.js";
+import { CheckCommand, CorrectCommand } from "../modules/CheckCommand";
+import { ExecuteCommand } from "./Commands/ExecCommand";
+import { AddErrorInView } from "./Commands/ErrorCommand";
 
 //* Command 실행 절차.
 //* (1) Header가 있는지, Command 체크 => CheckCommand

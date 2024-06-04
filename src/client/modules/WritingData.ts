@@ -1,3 +1,5 @@
+import {IData} from "@shared/interface/IData";
+
 export class WritingData implements IData {
   head: string;
   date: number;

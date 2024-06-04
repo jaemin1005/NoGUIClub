@@ -1,5 +1,5 @@
-import { CreateKeyboardEvent } from "../Components/Commands/Create/CreateCmdKeyboardEvent.js";
-import { AdjustWidth } from "./KeyboardEvent.js";
+import { CreateKeyboardEvent } from "../Components/Commands/Create/CreateCmdKeyboardEvent";
+import { AdjustWidth } from "./KeyboardEvent";
 
 export function CreateEvent(mainElem : Element, start : "head" | "body"){
   const execCreateEvent = new CreateKeyboardEvent(mainElem, start);

@@ -1,4 +1,4 @@
-import { IsHTMLElement } from "./IsHTMLElement.js";
+import { IsHTMLElement } from "./IsHTMLElement";
 
 /**
  * * rootElem의 자식들 상태 변경

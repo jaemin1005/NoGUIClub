@@ -1,4 +1,4 @@
-import { IsHTMLElement } from "./IsHTMLElement.js";
+import { IsHTMLElement } from "./IsHTMLElement";
 
 /**
  * * Display가 none이 아닌 경우만 삭제해야한당 :)

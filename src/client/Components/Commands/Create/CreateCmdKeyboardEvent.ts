@@ -1,10 +1,10 @@
-import { mapDOM } from "../../../modules/GetDOM.js";
-import { WritePost } from "./WritePost.js";
-import { contentType } from "../../../modules/ContentType.js";
-import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd.js";
-import { ESCQuitFunc } from "./EscQuitFunc.js";
-import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName.js";
-import { EscSaveFunc } from "./EscSaveFunc.js";
+import { mapDOM } from "../../../modules/GetDOM";
+import { WritePost } from "./WritePost";
+import { contentType } from "../../../modules/ContentType";
+import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd";
+import { ESCQuitFunc } from "./EscQuitFunc";
+import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
+import { EscSaveFunc } from "./EscSaveFunc"
 
 //* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent {
