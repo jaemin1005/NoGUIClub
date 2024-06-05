@@ -1,6 +1,6 @@
 import { CheckCommand, CorrectCommand } from "../modules/CheckCommand";
-import { ExecuteCommand } from "./Commands/ExecCommand";
-import { AddErrorInView } from "./Commands/ErrorCommand";
+import { ExecuteCommand } from "./commands/ExecCommand";
+import { AddErrorInView } from "./commands/ErrorCommand";
 
 //* Command 실행 절차.
 //* (1) Header가 있는지, Command 체크 => CheckCommand
