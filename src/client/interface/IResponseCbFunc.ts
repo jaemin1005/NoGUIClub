@@ -1,0 +1,1 @@
+type IResponseCbFunc = ( res : Response ) => void
