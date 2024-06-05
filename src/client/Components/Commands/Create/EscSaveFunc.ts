@@ -3,7 +3,7 @@ import { OnDisplayView } from "../../../modules/OnDisplayView";
 import { eventController } from "../../EventController";
 import { NormalEvent } from "../../../modules/ArrNormalEvent";
 import { ConvertPostIntoData } from "../../../modules/ConvertPostIntoData";
-import { POSTFetch } from "client/modules/POSTFetch";
+import { POSTFetch } from "../../../modules/POSTFetch";
 
 //* 1. 현재 작성한글을 서버로 전송한다.
 //* 2. 명령어를 되돌린다.
