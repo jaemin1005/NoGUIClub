@@ -3,6 +3,11 @@ import { LoadFile } from "./modules/LoadFile";
 
 const app = express();
 
+//* 정적 파일 전송
+app.use("/static", express.static("public"));
+app.use("/js", express.static("dist"));
+
+//* idnex Page 전송
 app.get("/", (req, res) => {LoadFile("index.html", res)});
 
 app.listen(3000, () => {
