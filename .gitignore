@@ -2,3 +2,4 @@ dist
 node_modules
 src/Test.ts
 test.html
+resources/post/*
