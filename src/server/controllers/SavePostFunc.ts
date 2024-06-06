@@ -14,8 +14,10 @@ import { TransObjIntoHash } from "../modules/TransObjIntoHash";
 export const SavePostFunc: IRouterCbFunc = (req, res) => {
 
   if (req.body) {
+    const path = "resources/post/"
+    const extenstion = ".json"
     const data = JSON.stringify(req.body);
     const fileName = TransObjIntoHash(data);
-    WriteFile(fileName, data, res);
+    WriteFile(path + fileName + extenstion, data, res);
   }
 }
