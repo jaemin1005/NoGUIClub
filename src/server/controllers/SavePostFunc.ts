@@ -1,7 +1,7 @@
 import { IRouterCbFunc } from "../interfaces/IRouterCbfunc";
 import { WriteFile } from "../modules/WriteFile"
 import { TransObjIntoHash } from "../modules/TransObjIntoHash";
-
+import { SimpleNAck } from "../modules/SimpleNAck";
 
 
 /**
@@ -19,5 +19,7 @@ export const SavePostFunc: IRouterCbFunc = (req, res) => {
     const data = JSON.stringify(req.body);
     const fileName = TransObjIntoHash(data);
     WriteFile(path + fileName + extenstion, data, res);
+  } else {
+    SimpleNAck(res);
   }
 }
