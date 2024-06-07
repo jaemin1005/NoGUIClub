@@ -4,6 +4,7 @@ import { eventController } from "../../EventController";
 import { NormalEvent } from "../../../modules/ArrNormalEvent";
 import { ConvertPostIntoData } from "../../../modules/ConvertPostIntoData";
 import { POSTFetch } from "../../../modules/POSTFetch";
+import { CreateElement } from "client/modules/CreateElement";
 
 //* 1. 현재 작성한글을 서버로 전송한다.
 //* 2. 명령어를 되돌린다.
@@ -22,5 +23,24 @@ export function EscSaveFunc(rootElem : Element){
     OnDisplayView(rootElem);
 
     //* 서버로 전송하기.
-    POSTFetch("/create", JSON.stringify(data));
+    POSTFetch("/create", JSON.stringify(data), (res)=> {SaveSuccessFunc(rootElem)}, (res)=> {SaveFailFunc(rootElem)});
 }
+
+function SaveSuccessFunc(rootElem : Element){ 
+    const div = CreateElement({elem :"div"});
+    div.textContent = "글 저장에 성공하였습니다";
+    rootElem.appendChild(div);
+}
+
+/**
+ * * 글 저장에 실패하였을 떄.
+ * TODO 폰트 변환?
+ * TODO 글 임시 저장?
+ * @param rootElem 
+ */
+function SaveFailFunc(rootElem : Element){
+    const div = CreateElement({elem : "div"});
+    div.textContent = "글 저장에 실패하였습니다";
+    rootElem.appendChild(div);
+}
+
