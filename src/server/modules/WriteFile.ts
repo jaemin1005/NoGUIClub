@@ -22,6 +22,7 @@ export function WriteFile(path : string, data : string | Buffer, res : Response)
   })
 
   writeStream.write(data);
+  writeStream.end();
 }
 
 
