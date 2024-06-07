@@ -1,6 +1,6 @@
 import mysql = require("mysql");
 
-class DataBase {
+export class DataBase {
 
   db: mysql.Connection;
 
@@ -22,8 +22,8 @@ class DataBase {
     });
   }
 
-  ExecQuery(query: string) {
-    this.db.query(query, (err, rows) => {
+  ExecQuery(query: string, params? : any) {
+    this.db.query(query, params, (err, rows) => {
       if (err) {
         console.error('Error Exec Query : ' + err.stack);
         return;
@@ -40,4 +40,3 @@ class DataBase {
   }
 }
 
-export const db = new DataBase("localhost", "root", "password", "NoGUIClub");
