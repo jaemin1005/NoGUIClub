@@ -45,4 +45,10 @@ export class WritingData implements IData {
     return arrElem;
   }
 
+  ReturnArr() : Array<string>{
+    const arr : Array<string> = [];
+    arr[arr.length] = this.head;
+
+    this.body.forEach(str => arr[arr.length] = str);
+  }
 }
