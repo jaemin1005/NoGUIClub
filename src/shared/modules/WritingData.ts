@@ -1,6 +1,6 @@
 import {IData} from "@shared/interface/IData";
-import { enumPostElemName } from "./Enum/EnumPostElemName";
-import { CreateElement } from "./CreateElement";
+import { enumPostElemName } from "../../client/modules/Enum/EnumPostElemName";
+import { CreateElement } from "../../client/modules/CreateElement";
 
 export class WritingData implements IData {
   head: string;

@@ -1,6 +1,6 @@
 import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
 import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
-import { WritingData } from "../../../modules/WritingData";
+import { WritingData } from "../../../../shared/modules/WritingData";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent{
 
