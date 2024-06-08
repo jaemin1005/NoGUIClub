@@ -6,7 +6,7 @@ export function CreateEvent(mainElem : Element, start : "head" | "body"){
    
   const enter : IEventMap<"keydown", HTMLInputElement> = {
     type : "keydown",
-    func : (event) => execCreateEvent.EnterEvent(event)
+    func : (event) => execCreateEvent.Enter(event)
   };
 
   const input : IEventMap<"input", HTMLInputElement> = {
@@ -16,7 +16,7 @@ export function CreateEvent(mainElem : Element, start : "head" | "body"){
   
   const escape : IEventMap<"keydown", HTMLInputElement> = {
     type : "keydown",
-    func : (event) => execCreateEvent.EscapeEvent(event)
+    func : (event) => execCreateEvent.Escape(event)
   }
 
   const adjust : IEventMap<"keydown", HTMLInputElement> = {
