@@ -1,4 +1,6 @@
 import {IData} from "@shared/interface/IData";
+import { enumPostElemName } from "./Enum/EnumPostElemName";
+import { CreateElement } from "./CreateElement";
 
 export class WritingData implements IData {
   head: string;
@@ -10,4 +12,37 @@ export class WritingData implements IData {
     this.date = date;
     this.body = body;
   }
+
+
+  TransHeadIntoElem() : Element{
+    return CreateElement({
+      elem : "div",
+      property : {
+        id : `${enumPostElemName.header}`,
+        textContent : this.head
+      },
+      style : {
+        color : "rgb(255,255,0)",
+        fontSize : "1.5rem",
+        height : "1.5rem"
+      }
+    });
+  }
+
+  TransBodyIntoElem() : Array<Element>{
+    let arrElem : Array<Element> = [];
+
+    for(const content of this.body){
+      arrElem[arrElem.length] = CreateElement({
+        elem : "div",
+        property : {
+          className : `${enumPostElemName.body}`,
+          textContent : content
+        },
+      })
+    }
+
+    return arrElem;
+  }
+
 }
