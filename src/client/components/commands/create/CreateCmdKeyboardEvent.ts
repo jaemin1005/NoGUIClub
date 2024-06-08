@@ -5,9 +5,10 @@ import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd";
 import { ESCQuitFunc } from "./EscQuitFunc";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { EscSaveFunc } from "./EscSaveFunc"
+import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
 
 //* Create 명령어에 대한 KeyboarEvent
-export class CreateKeyboardEvent {
+export class CreateKeyboardEvent extends CommandKeyboardEvent {
 
   curElem: Element;
   mainElem: Element;
@@ -17,6 +18,7 @@ export class CreateKeyboardEvent {
   tempText : string;
 
   constructor(mainElem: Element, start: "head" | "body") {
+    super();
     this.curElem = WritePost(mainElem, start);
     this.mainElem = mainElem;
     this.isEsc = false;
@@ -24,9 +26,7 @@ export class CreateKeyboardEvent {
   }
 
   //* keydown - Enter에 대한 이벤트
-  EnterEvent(event: KeyboardEvent) {
-    if (event.isComposing == true || event.key !== "Enter") return;
-
+  EnterCbFunc(event: KeyboardEvent) {
     const elem = mapDOM.GetDOM("command-type");
 
     if (elem) {
@@ -85,8 +85,7 @@ export class CreateKeyboardEvent {
   }
 
   //* keydown - Esc키에 대한 이벤트
-  EscapeEvent(event: KeyboardEvent) {
-    if (event.isComposing === true || event.key !== "Escape") return;
+  EscapeCbFunc(event: KeyboardEvent) {
 
     this.isEsc = !this.isEsc
     const elem = mapDOM.GetDOM("command-type")!;
