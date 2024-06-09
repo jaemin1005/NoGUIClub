@@ -2,8 +2,10 @@ import { IRouterCbFunc } from "../interfaces/IRouterCbfunc";
 import { WriteFile } from "../modules/WriteFile"
 import { TransObjIntoHash } from "../modules/TransObjIntoHash";
 import { SimpleNAck } from "../modules/SimpleNAck";
-import { db } from "server/modules/NGCDatabase";
+import { db } from "../modules/NGCDatabase";
 import { IData } from "@shared/interface/IData";
+import { WritingData } from "@shared/modules/WritingData";
+
 
 /**
  * * 글을 저장하는 컨트롤러.
@@ -16,7 +18,8 @@ export const SavePostFunc: IRouterCbFunc = (req, res) => {
 
   if (req.body) {
 
-    const data = req.body as IData;
+    const {head, date, body} = req.body as IData;
+    const data  = new WritingData(head,date,body);
 
     const path = "resources/post/"
     const extenstion = ".json"
