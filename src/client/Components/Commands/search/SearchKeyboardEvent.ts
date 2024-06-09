@@ -24,6 +24,10 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent{
     this.mapPageData.set(page, arrWritingData);
   }
 
+  GetCurrentPage() : Array<WritingData> | undefined {
+    return this.mapPageData.get(this.nCurPage);
+  }
+
   EnterCbFunc(event: KeyboardEvent): void {
     if(this.watchElem === null) return;
     
