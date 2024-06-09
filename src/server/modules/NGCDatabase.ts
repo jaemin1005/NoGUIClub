@@ -1,12 +1,15 @@
+import { WritingData } from "@shared/modules/WritingData";
 import { DataBase } from "./Database";
-import { IData } from "@shared/interface/IData"
+import { TransArrStrIntoStr } from "@shared/modules/TransArrStrIntoStr"
 
 class NGCDatabase extends DataBase{
 
-  SavePost(data : IData, fileName : string){
+  SavePost(data : WritingData, fileName : string){
     const query = "INSERT INTO post_table (head, file_name, date) VALUES(?,?,?)"
     const params = [data.head, fileName, data.date];
     
+    const keywords = TransArrStrIntoStr(data.ReturnArr());
+
     this.ExecQuery(query, params);
   }
 }
