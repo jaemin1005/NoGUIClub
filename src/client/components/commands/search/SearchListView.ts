@@ -1,12 +1,9 @@
-import { WritingData } from "@shared/modules/WritingData"
+import { Data } from "@shared/modules/Data"
 import { mapDOM } from "../../../modules/GetDOM"
 import { CreateElement } from "../../../modules/CreateElement";
 
-<<<<<<< HEAD
-=======
 /** 글 목록을 사용자에게 보여주기 */
->>>>>>> test_merge_2
-export function SearchListView(arrData : Array<WritingData>){
+export function SearchListView(arrData : Array<Data>){
   
   const mainElem = mapDOM.GetDOM("main-view");
 
@@ -16,19 +13,7 @@ export function SearchListView(arrData : Array<WritingData>){
     const textData = `${nIdx+1}. ${arrData[nIdx].head}`;
   
     //TODO : Style 정하기 :) 
-<<<<<<< HEAD
-    const elem = CreateElement({
-      elem: "div",
-      property : {
-        textContent : textData
-      }
-    })
-
-    
-=======
     const elem = CreateElement({elem: "div", property : { textContent : textData }});
-
     mainElem?.appendChild(elem);
->>>>>>> test_merge_2
   }
 }
