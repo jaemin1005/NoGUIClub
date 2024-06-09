@@ -4,7 +4,7 @@ import { TransObjIntoHash } from "../modules/TransObjIntoHash";
 import { SimpleNAck } from "../modules/SimpleNAck";
 import { db } from "../modules/NGCDatabase";
 import { IData } from "@shared/interface/IData";
-import { WritingData } from "@shared/modules/WritingData";
+import { Data } from "@shared/modules/Data";
 
 
 /**
@@ -19,7 +19,7 @@ export const SavePostFunc: IRouterCbFunc = (req, res) => {
   if (req.body) {
 
     const {head, date, body} = req.body as IData;
-    const data  = new WritingData(head,date,body);
+    const data  = new Data(head,date,body);
 
     const path = "resources/post/"
     const extenstion = ".json"
