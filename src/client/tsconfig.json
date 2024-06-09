@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist",
+    "outDir": "../../dist/client",
     //* 출력디렉토리의 구조를 설정한다 :)
     "rootDir": "../",
     //* client이므로 ESNext구조를 사용합니다. 
