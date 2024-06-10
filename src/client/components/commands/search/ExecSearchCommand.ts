@@ -3,6 +3,7 @@ import { SearchKeyboardEvent } from "./SearchKeyboardEvent"
 import { mapDOM } from "../../../modules/GetDOM"
 import { IData } from "@shared/interface/IData";
 import { SearchListView } from "./SearchListView";
+import { ICommandData, SearchCmd } from "@shared/interface/ICommand";
 
 export function ExecSearchCmd(reqData : ICommandData, command : SearchCmd){
   POSTFetch("/search", JSON.stringify(reqData), SearchSuccessCbFunc)
