@@ -4,6 +4,11 @@ import { Data } from "../../../../shared/modules/Data";
 import { IData } from "@shared/interface/IData";
 import { CreateElement } from "client/modules/CreateElement";
 import { postHeadStyle } from "client/styles/PostHeadElem";
+import { eventController } from "client/components/EventController";
+import { NormalEvent } from "client/modules/ArrNormalEvent";
+import { DeleteView } from "client/modules/DeleteView";
+import { mapDOM } from "client/modules/GetDOM";
+import { OnDisplayView } from "client/modules/OnDisplayView";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent{
 
@@ -31,11 +36,12 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent{
   }
 
   EnterCbFunc(event: KeyboardEvent): void {
+
     if(this.watchElem === null) return;
     
     const num = Number(this.watchElem.textContent);
     
-    if(num <= 0 || num > 10) return;
+    if(num <= 0 || num > this.GetCurrentPage()!.length) return;
 
     const arrData = this.mapPageData.get(this.nCurPage);
     
@@ -50,10 +56,15 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent{
       const elem = CreateElement({elem : "div", property : {textContent : textcontent}})
       body[body.length] = elem;
     })
+
+    OnDisplayView(mapDOM.GetDOM("main-view")!);
     AddChildInRootElement(null, null, head, null, null, ...body);
+    eventController.AddStash(NormalEvent());
   }
 
   EscapeCbFunc(event: KeyboardEvent): void {
-    
+    DeleteView(mapDOM.GetDOM("main-view")!);
+    OnDisplayView(mapDOM.GetDOM("main-view")!);
+    eventController.AddStash(NormalEvent());
   }
 }
