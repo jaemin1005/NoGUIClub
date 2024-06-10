@@ -22,17 +22,6 @@ export class DataBase {
     });
   }
 
-  // ExecQuery(query: string, params? : any) : null | any {
-  //   this.db.query(query, params, (err, rows) => {
-  //     if (err) {
-  //       console.error('Error Exec Query : ' + err.stack);
-  //       return;
-  //     }
-  //     console.dir('Success Query : ' + rows);
-  //     return rows;
-  //   });
-  // }
-
   async ExecQuery(query: string, params? : any) {
     return await new Promise((res,rej) => {this.db.query(query, params, (err, rows) => {
       if (err) {
