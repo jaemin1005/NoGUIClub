@@ -1,4 +1,4 @@
-
+import { Command, ICommandData, SearchCmd } from "@shared/interface/ICommand";
 
 /** Command인제 체커하는 함수 */
 function IsCommand(command : string, subCommand : string | null) : Command | null{
