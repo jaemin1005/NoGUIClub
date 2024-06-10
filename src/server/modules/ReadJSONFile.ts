@@ -1,7 +1,7 @@
 import { readFile } from "fs";
 
 /** 해당 경로의 파일들을 모두 읽어 객체의 배열로 반환한다. */
-async function ReadJsonFiles<T>(...filePaths : string[]){
+export async function ReadJsonFiles<T>(...filePaths : string[]){
   
   const arrObj : T[] = [];
 
@@ -20,4 +20,4 @@ async function ReadJsonFiles<T>(...filePaths : string[]){
   return arrObj;
 }
 
-ReadJsonFiles("resources/post/17fe9c411e7615bfb1be9d512840511f.json", "resources/post/b21880ed4fc63d497097f18a92e00b3a.json");
+//ReadJsonFiles("resources/post/17fe9c411e7615bfb1be9d512840511f.json", "resources/post/b21880ed4fc63d497097f18a92e00b3a.json");
