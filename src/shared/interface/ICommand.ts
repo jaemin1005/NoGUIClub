@@ -1,16 +1,19 @@
 interface SearchCmd {
   main : "search";
   sub : SearchSubCmd;
+  value : string | null;
 }
 
 interface CreateCmd {
   main : "create";
   sub : CreateSubCmd;
+  value : string | null;
 }
 
 interface HelpCmd{
   main : "help";
   sub : HelpSubCmd;
+  value : string | null;
 }
 
 type Command = SearchCmd | CreateCmd | HelpCmd;
