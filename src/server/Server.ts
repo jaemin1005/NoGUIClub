@@ -2,6 +2,7 @@ import express from "express"
 import bodyParser from "body-parser";
 import { LoadFile } from "./modules/LoadFile";
 import { SavePostFunc } from "./controllers/SavePostFunc";
+import { SearchFunc } from "./controllers/SearchFunc";
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use("/src", express.static("src"));
 //* idnex Page 전송
 app.get("/", (req, res) => {LoadFile("index.html", res);});
 app.post("/create",SavePostFunc);
+app.post("/search", SearchFunc);
 
 app.listen(3000, () => {
   console.log("서버 시작 되었습니다.");

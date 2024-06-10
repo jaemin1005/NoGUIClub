@@ -1,5 +1,6 @@
 import { ExecCreateCmd } from "./create/ExecCreateCommand";
-import { ICommandData, SearchCmd, HelpCmd } from "@shared/interface/ICommand";
+import { ICommandData } from "@shared/interface/ICommand";
+import { ExecSearchCmd } from "./search/ExecSearchCommand";
 
 //TODO 제네릭으로 수정하기.. Hmm
 //* ExeCmd = (reqData : ReqData, command : ReqData.command) => void  
@@ -16,25 +17,9 @@ export function ExecuteCommand(reqData : ICommandData) : void {
       ExecCreateCmd(reqData, command);
       break;
     case "help":
-      ExecHelpCmd(reqData, command);
+      //ExecHelpCmd(reqData, command);
       break;  
   }
 }
 
-function ExecSearchCmd(reqData : ICommandData, command : SearchCmd){
-  const subCommand = command.sub;
-  switch(subCommand){
-    case "-f":
-      break;
-    case "-g":
-      break;
-    case null:
-      break;
-  }
-}
-
-
-function ExecHelpCmd(reqData : ICommandData, command : HelpCmd){
-
-}
 
