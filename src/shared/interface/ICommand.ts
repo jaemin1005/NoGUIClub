@@ -1,29 +1,29 @@
-interface SearchCmd {
+export interface SearchCmd {
   main : "search";
   sub : SearchSubCmd;
   value : string | null;
 }
 
-interface CreateCmd {
+export interface CreateCmd {
   main : "create";
   sub : CreateSubCmd;
   value : string | null;
 }
 
-interface HelpCmd{
+export interface HelpCmd{
   main : "help";
   sub : HelpSubCmd;
   value : string | null;
 }
 
-type Command = SearchCmd | CreateCmd | HelpCmd;
+export type Command = SearchCmd | CreateCmd | HelpCmd;
 
-interface ICommandData {
+export interface ICommandData {
   header : "ngc";
   command : Command;
   value : string | null;
 }
 
-type CreateSubCmd = "-m" | null;
-type HelpSubCmd = "-d" | null;  
-type SearchSubCmd = "-f" | "-g" | null;
+export type CreateSubCmd = "-m" | null;
+export type HelpSubCmd = "-d" | null;  
+export type SearchSubCmd = "-f" | "-g" | null;

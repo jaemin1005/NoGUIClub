@@ -2,6 +2,7 @@ import { Data } from "@shared/modules/Data";
 import { DataBase } from "./Database";
 import { TransArrStrIntoStr } from "@shared/modules/TransArrStrIntoStr"
 import { GetKeywords } from "./GetKeyword";
+import { ICommandData } from "@shared/interface/ICommand";
 
 class NGCDatabase extends DataBase{
 

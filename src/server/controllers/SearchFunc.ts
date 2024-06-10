@@ -5,7 +5,9 @@ import { StringToNumber } from "@shared/modules/StringToNumber";
 import { IDbColumn } from "../interfaces/IDbColumn";
 import { ReadJsonFiles } from "../modules/ReadJSONFile"
 import { IData } from "@shared/interface/IData";
+import { ICommandData } from "@shared/interface/ICommand";
 
+/** /search POST 요청받을때 콜백되는 함수 */
 export const SearchFunc : IRouterCbFunc = async (req, res) => {
   if(!req.body) { SimpleNAck(res); return; }
 

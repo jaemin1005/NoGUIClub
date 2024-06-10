@@ -6,7 +6,7 @@ import { eventController } from "../../EventController";
 import { CreateEvent } from "../../../modules/ArrCreateEvent";
 import { ClearView } from "../../../modules/ClearView";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
-
+import { ICommandData, CreateCmd } from "@shared/interface/ICommand";
 
 /**
  * * Create의 명령어에 의해 호출된 함수

@@ -1,5 +1,5 @@
 import { ExecCreateCmd } from "./create/ExecCreateCommand";
-
+import { ICommandData, SearchCmd, HelpCmd } from "@shared/interface/ICommand";
 
 //TODO 제네릭으로 수정하기.. Hmm
 //* ExeCmd = (reqData : ReqData, command : ReqData.command) => void  
