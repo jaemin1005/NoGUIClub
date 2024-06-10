@@ -1,21 +1,21 @@
 interface SearchCmd {
-  command : "search";
-  subCommand : SearchSubCmd;
+  main : "search";
+  sub : SearchSubCmd;
 }
 
 interface CreateCmd {
-  command : "create";
-  subCommand : CreateSubCmd;
+  main : "create";
+  sub : CreateSubCmd;
 }
 
 interface HelpCmd{
-  command : "help";
-  subCommand : HelpSubCmd;
+  main : "help";
+  sub : HelpSubCmd;
 }
 
 type Command = SearchCmd | CreateCmd | HelpCmd;
 
-interface ReqData {
+interface ICommandData {
   header : "ngc";
   command : Command;
   value : string | null;

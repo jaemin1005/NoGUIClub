@@ -4,7 +4,7 @@ import { mapDOM } from "../../../modules/GetDOM"
 import { IData } from "@shared/interface/IData";
 import { SearchListView } from "./SearchListView";
 
-export function ExecSearchCmd(reqData : ReqData, command : SearchCmd){
+export function ExecSearchCmd(reqData : ICommandData, command : SearchCmd){
   POSTFetch("/search", JSON.stringify(reqData), SearchSuccessCbFunc)
 }
 

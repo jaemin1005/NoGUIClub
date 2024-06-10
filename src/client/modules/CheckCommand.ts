@@ -6,17 +6,17 @@ function IsCommand(command : string, subCommand : string | null) : Command | nul
   switch(command){
     case "search":
       if(subCommand === "-f" || subCommand === "-g" || subCommand === null){
-        return { command : command, subCommand : subCommand}
+        return { main : command, sub : subCommand}
       }
       break;
     case "create":
       if(subCommand === "-m" || subCommand === null){
-        return {command : command, subCommand : subCommand}
+        return {main : command, sub : subCommand}
       }
       break;
     case "help":
       if(subCommand === "-d" || subCommand === null){
-        return {command : command, subCommand : subCommand}
+        return {main : command, sub : subCommand}
       }
      break;
     default:
@@ -30,7 +30,7 @@ function IsCommand(command : string, subCommand : string | null) : Command | nul
  * @param strCommand
  * @returns 
  */
-export function CheckCommand(strCommand : string) : ReqData | null{
+export function CheckCommand(strCommand : string) : ICommandData | null{
   
   const splitCommand = strCommand.split(" ");
 
@@ -53,7 +53,7 @@ export function CheckCommand(strCommand : string) : ReqData | null{
   //* Default
   //* Command가 아닐 경우 default로 Search Command를 보낸다. 
   else{
-    const command : SearchCmd = {command : "search", subCommand: null}
+    const command : SearchCmd = {main : "search", sub: null}
     return {header : "ngc", command : command , value : strCommand};
   }
 }
@@ -63,8 +63,8 @@ export function CheckCommand(strCommand : string) : ReqData | null{
  * @param reqData 
  * @returns 
  */
-export function CorrectCommand(reqData : ReqData) : boolean{
-  const command = reqData.command.command;
+export function CorrectCommand(reqData : ICommandData) : boolean{
+  const command = reqData.command.main;
 
   switch(command){
     case "search": 

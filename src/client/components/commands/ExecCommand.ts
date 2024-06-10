@@ -5,10 +5,10 @@ import { ExecCreateCmd } from "./create/ExecCreateCommand";
 //* ExeCmd = (reqData : ReqData, command : ReqData.command) => void  
 //* Command : SearchCmd | CreateCmd | HelpCmd, T에서 중 하나라는 걸 나타내고 싶다. 
 
-export function ExecuteCommand(reqData : ReqData) : void {
+export function ExecuteCommand(reqData : ICommandData) : void {
   const command = reqData.command;
 
-  switch(command.command){
+  switch(command.main){
     case "search":
       ExecSearchCmd(reqData, command);
       break;  
@@ -21,8 +21,8 @@ export function ExecuteCommand(reqData : ReqData) : void {
   }
 }
 
-function ExecSearchCmd(reqData : ReqData, command : SearchCmd){
-  const subCommand = command.subCommand;
+function ExecSearchCmd(reqData : ICommandData, command : SearchCmd){
+  const subCommand = command.sub;
   switch(subCommand){
     case "-f":
       break;
@@ -34,7 +34,7 @@ function ExecSearchCmd(reqData : ReqData, command : SearchCmd){
 }
 
 
-function ExecHelpCmd(reqData : ReqData, command : HelpCmd){
+function ExecHelpCmd(reqData : ICommandData, command : HelpCmd){
 
 }
 

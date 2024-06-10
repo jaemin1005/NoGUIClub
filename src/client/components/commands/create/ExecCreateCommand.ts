@@ -14,8 +14,8 @@ import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
  * @param reqData 
  * @param command 
  */
-export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
-  const subCommand = command.subCommand;
+export function ExecCreateCmd(reqData : ICommandData, command :CreateCmd){
+  const subCommand = command.sub;
   const main = mapDOM.GetDOM("main-view")!
   const contentTypeElem = mapDOM.GetDOM("command-type")!;
   let style : "head" | "body" | null;
