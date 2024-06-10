@@ -13,7 +13,7 @@ class NGCDatabase extends DataBase{
     this.ExecQuery(query, params);
   }
 
-  async FindPost(data : Data, page : number){
+  async FindPost(data : ICommandData, page : number){
 
     const nMinNum = (page - 1) * 10;
     const nMaxNum = page * 10 - 1
