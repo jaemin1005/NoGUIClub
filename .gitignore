@@ -3,4 +3,7 @@ node_modules
 src/Test.ts
 test.html
 resources/post/*
-.DS_store
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
