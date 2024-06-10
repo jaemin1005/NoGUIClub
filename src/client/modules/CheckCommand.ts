@@ -68,7 +68,7 @@ export function CorrectCommand(reqData : ICommandData) : boolean{
 
   switch(command){
     case "search": 
-      return reqData.value !== null ? true : false;
+      return true;
     case "create":
       return true;
     case "help":
