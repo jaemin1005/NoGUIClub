@@ -3,7 +3,7 @@ import { contentType } from "../../../modules/ContentType";
 import { CreateElement } from "../../../modules/CreateElement";
 import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
 import { eventController } from "../../EventController";
-import { CreateEvent } from "../../../modules/ArrCreateEvent";
+import { CreateEvent } from "./ArrCreateEvent";
 import { ClearView } from "../../../modules/ClearView";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { ICommandData, CreateCmd } from "@shared/interface/ICommand";
