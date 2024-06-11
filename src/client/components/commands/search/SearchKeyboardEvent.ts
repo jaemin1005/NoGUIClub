@@ -14,11 +14,13 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
   nCurPage : number; 
   mapPageData : Map<number, Array<Data>>
-  
+  mainView
+
   constructor(elem: HTMLInputElement){
     super(elem);
     this.nCurPage = 1;
     this.mapPageData = new Map<number, Array<Data>>();
+    this.mainView = mapDOM.GetDOM("main-view")!;
   }
 
   SetMapPageData(page: number, arrData: IData[]){
@@ -39,7 +41,7 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
     if(this.watchElem === null) return;
     
-    const num = Number(this.watchElem.textContent);
+    const num = Number(this.watchElem.value);
     
     if(num <= 0 || num > this.GetCurrentPage()!.length) return;
 
@@ -57,14 +59,15 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
       body[body.length] = elem;
     })
 
-    OnDisplayView(mapDOM.GetDOM("main-view")!);
+    DeleteView(this.mainView);
+    OnDisplayView(this.mainView);
     AddChildInRootElement(null, null, head, null, null, ...body);
     eventController.AddStash(NormalEvent());
   }
 
   EscapeCbFunc(event: KeyboardEvent): void {
-    DeleteView(mapDOM.GetDOM("main-view")!);
-    OnDisplayView(mapDOM.GetDOM("main-view")!);
+    DeleteView(this.mainView);
+    OnDisplayView(this.mainView);
     eventController.AddStash(NormalEvent());
   }
 }
