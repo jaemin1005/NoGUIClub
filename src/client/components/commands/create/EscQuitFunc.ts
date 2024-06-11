@@ -9,11 +9,11 @@ import { NormalEvent } from "../../../modules/ArrNormalEvent";
  */
 export function ESCQuitFunc(rootElem : Element){
 
-  //* 이벤트 되돌리기.
-  eventController.AddStash(NormalEvent());
+  // //* 이벤트 되돌리기.
+  // eventController.AddStash(NormalEvent());
 
-  //* View화면 되돌리기.
+  // //* View화면 되돌리기.
 
-  DeleteView(rootElem);
-  OnDisplayView(rootElem);
+  // DeleteView(rootElem);
+  // OnDisplayView(rootElem);
 }

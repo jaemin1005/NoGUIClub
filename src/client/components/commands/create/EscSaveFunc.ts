@@ -15,12 +15,12 @@ export function EscSaveFunc(rootElem : Element){
     //* 작성한 글을 데이터로 만들기.
     const data = ConvertPostIntoData(rootElem);
     
-    //* 이벤트 되돌리기.
-    eventController.AddStash(NormalEvent());
+    // //* 이벤트 되돌리기.
+    // eventController.AddStash(NormalEvent());
 
-    //* View화면 되돌리기.
-    DeleteView(rootElem);
-    OnDisplayView(rootElem);
+    // //* View화면 되돌리기.
+    // DeleteView(rootElem);
+    // OnDisplayView(rootElem);
 
     //* 서버로 전송하기.
     POSTFetch("/create", JSON.stringify(data), (res)=> {SaveSuccessFunc(rootElem)}, (res)=> {SaveFailFunc(rootElem)});
