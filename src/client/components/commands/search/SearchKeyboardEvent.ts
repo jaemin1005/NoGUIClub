@@ -62,11 +62,8 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
     InitStateView();
     AddChildInRootElement(null, null, head, null, null, ...body);
-<<<<<<< HEAD
     AddChildInRootElement(null, null);
     eventController.AddStash(NormalEvent());
-=======
->>>>>>> SearchKeyboardEvent
   }
 
   EscapeCbFunc(event: KeyboardEvent): void {
