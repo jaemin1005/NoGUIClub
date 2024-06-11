@@ -31,14 +31,11 @@ export class CreateKeyboardEvent extends CommandKeyboardEvent<"input">{
     const elem = mapDOM.GetDOM("command-type");
 
     if (elem) {
-      if (elem.textContent === contentType.header) {
+      if (elem.textContent === contentType.header || elem.textContent === contentType.body) {
         elem.textContent = contentType.body;
         this.typeElem = WritePost(this.mainElem, "body");
-      }
-
-      else if (elem.textContent === contentType.body) {
-        elem.textContent = contentType.body;
-        this.typeElem = WritePost(this.mainElem, "body");
+        this.watchElem.value = ""
+        this.watchElem.style.width = "0px";
       }
 
       else if (elem.textContent === contentType.esc) {
