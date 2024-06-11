@@ -9,6 +9,7 @@ import { NormalEvent } from "client/modules/ArrNormalEvent";
 import { DeleteView } from "client/modules/DeleteView";
 import { mapDOM } from "client/modules/GetDOM";
 import { OnDisplayView } from "client/modules/OnDisplayView";
+import { InitStateView } from "client/components/InitStateView";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
@@ -59,16 +60,16 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
       body[body.length] = elem;
     })
 
-    DeleteView(this.mainView);
-    OnDisplayView(this.mainView);
+    InitStateView();
     AddChildInRootElement(null, null, head, null, null, ...body);
+<<<<<<< HEAD
     AddChildInRootElement(null, null);
     eventController.AddStash(NormalEvent());
+=======
+>>>>>>> SearchKeyboardEvent
   }
 
   EscapeCbFunc(event: KeyboardEvent): void {
-    DeleteView(this.mainView);
-    OnDisplayView(this.mainView);
-    eventController.AddStash(NormalEvent());
+    InitStateView();
   }
 }

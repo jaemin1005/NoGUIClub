@@ -6,6 +6,7 @@ import { ESCQuitFunc } from "./EscQuitFunc";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { EscSaveFunc } from "./EscSaveFunc"
 import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
+import { InitStateView } from "client/components/InitStateView";
 
 //* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent extends CommandKeyboardEvent<"input">{
@@ -72,7 +73,6 @@ export class CreateKeyboardEvent extends CommandKeyboardEvent<"input">{
 
     //* Enter시 초기화 :) 
     //let inputElem = event.target as HTMLInputElement
-    this.watchElem.value = "";
   }
 
   //* input - Input에 대한 이벤트
