@@ -3,10 +3,11 @@ import { contentType } from "../../../modules/ContentType";
 import { CreateElement } from "../../../modules/CreateElement";
 import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
 import { eventController } from "../../EventController";
-import { CreateEvent } from "./ArrCreateEvent";
+import { ArrCreateEvent } from "./ArrCreateEvent";
 import { ClearView } from "../../../modules/ClearView";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { ICommandData, CreateCmd } from "@shared/interface/ICommand";
+import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent";
 
 /**
  * * Create의 명령어에 의해 호출된 함수
@@ -17,7 +18,8 @@ import { ICommandData, CreateCmd } from "@shared/interface/ICommand";
 export function ExecCreateCmd(reqData : ICommandData, command :CreateCmd){
   const subCommand = command.sub;
   const main = mapDOM.GetDOM("main-view")!
-  const contentTypeElem = mapDOM.GetDOM("command-type")!;
+  const commandTypeElem = mapDOM.GetDOM("command-type")!;
+  const commandTextElem = mapDOM.GetDOM("command-text")! as HTMLInputElement;
   let style : "head" | "body" | null;
 
   ClearView(main);
@@ -26,19 +28,19 @@ export function ExecCreateCmd(reqData : ICommandData, command :CreateCmd){
   //* -m 서브명령어일 경우
   if(subCommand === "-m"){
     const headElem = document.getElementById(enumPostElemName.header)!
-    contentTypeElem.textContent = contentType.body;
+    commandTypeElem.textContent = contentType.body;
     headElem.textContent = reqData.value;
     style = "body";
   }
 
   //* -m 명령어일 경우
   else{
-    contentTypeElem.textContent = contentType.header;
+    commandTypeElem.textContent = contentType.header;
     style = "head";
   }
 
-  eventController.AddStash(CreateEvent(main, style));
-  
+  const createKeyboardEvent = new CreateKeyboardEvent(commandTextElem, main, style)
+  eventController.AddStash(ArrCreateEvent(createKeyboardEvent));
 }
 
 function InitView(){

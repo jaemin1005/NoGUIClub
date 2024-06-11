@@ -1,22 +1,21 @@
 import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent";
 import { AdjustWidth } from "../../../modules/KeyboardEvent";
 
-export function CreateEvent(mainElem : Element, start : "head" | "body"){
-  const execCreateEvent = new CreateKeyboardEvent(mainElem, start);
+export function ArrCreateEvent(createKeyboardEvent : CreateKeyboardEvent){
    
   const enter : IEventMap<"keydown", HTMLInputElement> = {
     type : "keydown",
-    func : (event) => execCreateEvent.Enter(event)
+    func : (event) => createKeyboardEvent.Enter(event)
   };
 
   const input : IEventMap<"input", HTMLInputElement> = {
     type : "input",
-    func : (event) => execCreateEvent.InputEvent(event)
+    func : (event) => createKeyboardEvent.InputEvent(event)
   }
   
   const escape : IEventMap<"keydown", HTMLInputElement> = {
     type : "keydown",
-    func : (event) => execCreateEvent.Escape(event)
+    func : (event) => createKeyboardEvent.Escape(event)
   }
 
   const adjust : IEventMap<"keydown", HTMLInputElement> = {
