@@ -1,9 +1,9 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist",
+    "outDir": "../../dist/server",
     "rootDir": "../",
     "module": "CommonJS"
   },
-  "include": ["**/*"]
+  "include": ["../shared/**/*", "**/*"]
 }

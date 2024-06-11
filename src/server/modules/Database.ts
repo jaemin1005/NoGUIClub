@@ -22,14 +22,15 @@ export class DataBase {
     });
   }
 
-  ExecQuery(query: string, params? : any) {
-    this.db.query(query, params, (err, rows) => {
+  async ExecQuery(query: string, params? : any) {
+    return await new Promise((res,rej) => {this.db.query(query, params, (err, rows) => {
       if (err) {
         console.error('Error Exec Query : ' + err.stack);
-        return;
+        rej(null);
       }
-      console.log('Success Query : ' + rows);
-    });
+      console.dir('Success Query : ' + rows);
+      res(rows);
+    })});
   }
 
   DisConnect(){

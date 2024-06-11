@@ -3,10 +3,10 @@ import { contentType } from "../../../modules/ContentType";
 import { CreateElement } from "../../../modules/CreateElement";
 import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
 import { eventController } from "../../EventController";
-import { CreateEvent } from "../../../modules/ArrCreateEvent";
+import { CreateEvent } from "./ArrCreateEvent";
 import { ClearView } from "../../../modules/ClearView";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
-
+import { ICommandData, CreateCmd } from "@shared/interface/ICommand";
 
 /**
  * * Create의 명령어에 의해 호출된 함수
@@ -14,8 +14,8 @@ import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
  * @param reqData 
  * @param command 
  */
-export function ExecCreateCmd(reqData : ReqData, command :CreateCmd){
-  const subCommand = command.subCommand;
+export function ExecCreateCmd(reqData : ICommandData, command :CreateCmd){
+  const subCommand = command.sub;
   const main = mapDOM.GetDOM("main-view")!
   const contentTypeElem = mapDOM.GetDOM("command-type")!;
   let style : "head" | "body" | null;
