@@ -11,10 +11,10 @@ app.use(bodyParser.json());
 
 //* 정적 파일 전송
 app.use("/public", express.static("public"));
-app.use("/dist", express.static("dist"));
 
 //* 타입스크립트 전송 (디버깅용입니다)
-app.use("/src", express.static("src"));
+app.use("/dist/src", express.static("src"));
+app.use("/dist", express.static("dist"));
 
 //* idnex Page 전송
 app.get("/", (req, res) => {LoadFile("index.html", res);});
