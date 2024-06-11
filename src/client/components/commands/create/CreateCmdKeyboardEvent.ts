@@ -8,18 +8,18 @@ import { EscSaveFunc } from "./EscSaveFunc"
 import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
 
 //* Create 명령어에 대한 KeyboarEvent
-export class CreateKeyboardEvent extends CommandKeyboardEvent {
+export class CreateKeyboardEvent extends CommandKeyboardEvent<"input">{
 
-  curElem: Element;
+  typeElem: Element;
   mainElem: Element;
 
   //* Esc Event에 필요한 프로퍼티 :) 
   isEsc: boolean
   tempText : string;
 
-  constructor(mainElem: Element, start: "head" | "body") {
-    super();
-    this.curElem = WritePost(mainElem, start);
+  constructor(targetElem : HTMLInputElement, mainElem: Element, start: "head" | "body") {
+    super(targetElem);
+    this.typeElem = WritePost(mainElem, start);
     this.mainElem = mainElem;
     this.isEsc = false;
     this.tempText = "";
@@ -32,12 +32,12 @@ export class CreateKeyboardEvent extends CommandKeyboardEvent {
     if (elem) {
       if (elem.textContent === contentType.header) {
         elem.textContent = contentType.body;
-        this.curElem = WritePost(this.mainElem, "body");
+        this.typeElem = WritePost(this.mainElem, "body");
       }
 
       else if (elem.textContent === contentType.body) {
         elem.textContent = contentType.body;
-        this.curElem = WritePost(this.mainElem, "body");
+        this.typeElem = WritePost(this.mainElem, "body");
       }
 
       else if (elem.textContent === contentType.esc) {
@@ -71,17 +71,15 @@ export class CreateKeyboardEvent extends CommandKeyboardEvent {
     }
 
     //* Enter시 초기화 :) 
-    let inputElem = event.target as HTMLInputElement
-    inputElem.value = "";
+    //let inputElem = event.target as HTMLInputElement
+    this.watchElem.value = "";
   }
 
   //* input - Input에 대한 이벤트
   InputEvent(event: Event) {
     //* Esc 키 이벤트 중 :) 
     if (this.isEsc === true) return;
-
-    let inputElem = event.target as HTMLInputElement;
-    this.curElem.textContent = inputElem.value;
+    this.typeElem.textContent = this.watchElem.value;
   }
 
   //* keydown - Esc키에 대한 이벤트
@@ -89,22 +87,21 @@ export class CreateKeyboardEvent extends CommandKeyboardEvent {
 
     this.isEsc = !this.isEsc
     const elem = mapDOM.GetDOM("command-type")!;
-    const input = event.target as HTMLInputElement;
 
     if (this.isEsc === true) {
       elem.textContent = contentType.esc;
-      this.tempText = input.value;
-      input.value = "";
+      this.tempText = this.watchElem.value;
+      this.watchElem.value = "";
     }
 
     else {
-      if (this.curElem.id === enumPostElemName.header) {
+      if (this.typeElem.id === enumPostElemName.header) {
         elem.textContent = contentType.header;
       }
       else {
         elem.textContent = contentType.body;
       }
-      input.value = this.tempText;
+      this.watchElem.value = this.tempText;
     }
   }
 }

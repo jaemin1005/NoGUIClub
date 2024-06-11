@@ -10,12 +10,12 @@ import { DeleteView } from "client/modules/DeleteView";
 import { mapDOM } from "client/modules/GetDOM";
 import { OnDisplayView } from "client/modules/OnDisplayView";
 
-export class SearchKeyboardEvent extends CommandKeyboardEvent{
+export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
   nCurPage : number; 
   mapPageData : Map<number, Array<Data>>
   
-  constructor(elem: Element){
+  constructor(elem: HTMLInputElement){
     super(elem);
     this.nCurPage = 1;
     this.mapPageData = new Map<number, Array<Data>>();
