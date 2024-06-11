@@ -1,10 +1,10 @@
 /** Command의 KeyboardEvent에 대한 클래스 */
-export abstract class CommandKeyboardEvent implements ICommandKeyboardEvent{
+export abstract class CommandKeyboardEvent<T extends keyof HTMLElementTagNameMap> implements ICommandKeyboardEvent{
 
-  watchElem : Element | null;
+  watchElem : HTMLElementTagNameMap[T];
 
-  constructor(elem? : Element){
-    this.watchElem = elem !== undefined ? elem : null;   
+  constructor(elem : HTMLElementTagNameMap[T]){
+    this.watchElem = elem   
   }
 
   Enter(event : KeyboardEvent){
