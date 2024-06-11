@@ -47,7 +47,7 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
     
     if(arrData === undefined) return;
 
-    const data = arrData[num];
+    const data = arrData[num-1];
 
     const head = CreateElement({elem : "div", property : {textContent : data.head}, style : postHeadStyle })
     const body : Array<Element> = []
