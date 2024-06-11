@@ -12,7 +12,7 @@ export function ExecSearchCmd(reqData : ICommandData, command : SearchCmd){
 }
 
 async function SearchSuccessCbFunc(res : Response){
-  const elem = mapDOM.GetDOM("command-text")!;
+  const elem = mapDOM.GetDOM("command-text")! as HTMLInputElement;
   const data : IData[] = await res.json();  
   const keyboardEvent = new SearchKeyboardEvent(elem);
   keyboardEvent.SetMapPageData(1, data);
