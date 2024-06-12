@@ -1,0 +1,1 @@
+type TypeTheme  = "origin" | "retro";
