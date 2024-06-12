@@ -8,17 +8,17 @@ import { eventController } from "client/components/EventController";
 import { ArrSearchEvent } from "./ArrSearchEvent";
 import { ClearView } from "client/modules/ClearView";
 
-export function ExecSearchCmd(reqData : ICommandData, command : SearchCmd){
-  POSTFetch("/search", JSON.stringify(reqData), SearchSuccessCbFunc)
+export function ExecSearchCmd(commandData : ICommandData, command : SearchCmd){
+  POSTFetch("/search", JSON.stringify(commandData), (res) => SearchSuccessCbFunc(res, commandData))
 }
 
-async function SearchSuccessCbFunc(res : Response){
+async function SearchSuccessCbFunc(res : Response, commandData : ICommandData){
   const elem = mapDOM.GetDOM("command-text")! as HTMLInputElement;
   const data : IData[] = await res.json();
   
   ClearView(mapDOM.GetDOM("main-view")!);
 
-  const keyboardEvent = new SearchKeyboardEvent(elem);
+  const keyboardEvent = new SearchKeyboardEvent(elem, commandData);
   keyboardEvent.SetMapPageData(1, data);
   eventController.AddStash(ArrSearchEvent(keyboardEvent));
   SearchListView(keyboardEvent.GetCurrentPage()!);
