@@ -1,11 +1,11 @@
 class Theme {
   __theme
 
-  constructor(theme : TypeTheme){
+  constructor(theme : Theme){
     this.__theme = theme   
   }
 
-  set Theme(value : TypeTheme){
+  set Theme(value : Theme){
     this.__theme = value;
   }
 
@@ -15,3 +15,4 @@ class Theme {
 }
 
 export const theme = new Theme("origin");
+

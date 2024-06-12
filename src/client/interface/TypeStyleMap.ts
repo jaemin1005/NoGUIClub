@@ -1,1 +1,1 @@
-type StyleMap = Map<Theme, Partial<CSSStyleDeclaration>>
+type StyleMap = Map<TypeTheme, Partial<CSSStyleDeclaration>>

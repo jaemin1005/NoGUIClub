@@ -5,7 +5,7 @@ const searchListStyle : Partial<CSSStyleDeclaration> = {
   "marginBottom" : "0.5rem"
 }
 
-const searchListStyleMap : StyleMap = new Map<Theme, Partial<CSSStyleDeclaration>>();
+const searchListStyleMap : StyleMap = new Map<TypeTheme, Partial<CSSStyleDeclaration>>();
 searchListStyleMap.set("origin", searchListStyle);
 
 export {searchListStyleMap};
