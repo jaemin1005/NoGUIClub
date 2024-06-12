@@ -17,7 +17,7 @@ class NGCDatabase extends DataBase{
   async FindPost(data : ICommandData, page : number){
 
     const nMinNum = (page - 1) * 10;
-    const nMaxNum = page * 10 - 1
+    const nMaxNum = page * 10;
 
     const query = `SELECT * FROM post_table ORDER BY create_at DESC LIMIT ${nMinNum}, ${nMaxNum}`;
     const result = await this.ExecQuery(query);
