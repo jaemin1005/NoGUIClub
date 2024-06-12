@@ -13,7 +13,7 @@ export interface CreateCmd {
 export interface HelpCmd{
   main : "help";
   sub : HelpSubCmd;
-  value : string | null;
+  value : null;
 }
 
 export type Command = SearchCmd | CreateCmd | HelpCmd;
@@ -25,5 +25,5 @@ export interface ICommandData {
 }
 
 export type CreateSubCmd = "-m" | null;
-export type HelpSubCmd = "-d" | null;  
+export type HelpSubCmd = null;  
 export type SearchSubCmd = "-f" | "-g" | null;
