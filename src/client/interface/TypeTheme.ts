@@ -1,1 +1,1 @@
-type TypeTheme  = "origin" | "retro";
+type Theme  = "origin" | "retro";
