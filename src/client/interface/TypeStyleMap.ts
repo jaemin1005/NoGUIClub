@@ -1,0 +1,1 @@
+type StyleMap = Map<TypeTheme, Partial<CSSStyleDeclaration>>
