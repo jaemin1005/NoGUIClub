@@ -51,10 +51,12 @@ export function CheckCommand(strCommand : string) : ICommandData | null{
   }
 
   //* Default
-  //* Command가 아닐 경우 default로 Search Command를 보낸다. 
+  //* Command가 아닐 경우 default로 Search Command를 보낸다.
+  //* 명령어가 아닌 경우 return null로 반환하자  
   else{
-    const command : SearchCmd = {main : "search", sub: null, value : "1"}
-    return {header : "ngc", command : command , value : strCommand};
+    // const command : SearchCmd = {main : "search", sub: null, value : "1"}
+    // return {header : "ngc", command : command , value : strCommand};
+    return null;
   }
 }
 
