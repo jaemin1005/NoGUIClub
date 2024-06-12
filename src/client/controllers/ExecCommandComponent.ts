@@ -15,12 +15,12 @@ export function ExecCmd(value : string){
 
     else{
       //TODO 에러처리를 해야 된다.
-      AddErrorInView("옳바른 값이 아닙니다", [`${value}을 다시 확인해 보세요`]);
+      AddErrorInView("It is not the correct value", [`"${value}" please check again`]);
     }
   }
 
   else{
     //TODO 에러처리를 해야 된다. 
-    AddErrorInView("주요 커맨드가 아닙니다.", [`${value}은 옳바른 커맨드가 아닙니다.`]);
+    AddErrorInView("command not found.", [`"${value}" is not a valid command.`, "To see a list of supported ngc commands, run:", "\u00A0\u00A0\u00A0\u00A0\u00A0ngc help"]);
   }
 }
