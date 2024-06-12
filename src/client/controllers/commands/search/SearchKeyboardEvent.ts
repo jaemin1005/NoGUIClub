@@ -12,6 +12,7 @@ import { ICommandData } from "@shared/interface/ICommand";
 import { POSTFetch } from "client/modules/POSTFetch";
 import { SearchListView } from "./SearchListView";
 import { DeleteView } from "client/modules/DeleteView";
+import { ContourElem } from "client/controllers/ContourElem";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
@@ -65,8 +66,10 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
     })
 
     InitStateView();
+    ContourElem();
     AddChildInRootElement(null, null, head, null, null, ...body);
     AddChildInRootElement(null, null);
+    ContourElem();
     eventController.AddStash(NormalEvent());
   }
 
