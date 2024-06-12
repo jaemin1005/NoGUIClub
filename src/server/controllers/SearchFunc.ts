@@ -6,6 +6,7 @@ import { IDbColumn } from "../interfaces/IDbColumn";
 import { ReadJsonFiles } from "../modules/ReadJSONFile"
 import { IData } from "@shared/interface/IData";
 import { ICommandData } from "@shared/interface/ICommand";
+import { SortArrObj } from "server/modules/SortArrObj";
 
 /** /search POST 요청받을때 콜백되는 함수 */
 export const SearchFunc : IRouterCbFunc = async (req, res) => {
@@ -26,6 +27,7 @@ export const SearchFunc : IRouterCbFunc = async (req, res) => {
     paths[paths.length] = path;
   }
 
-  const arrIData : Array<IData> = await ReadJsonFiles(...paths);
+  let arrIData : Array<IData> = await ReadJsonFiles(...paths);
+  arrIData = SortArrObj(arrIData, "date");
   res.json(arrIData);
 }
