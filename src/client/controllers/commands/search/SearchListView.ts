@@ -1,6 +1,7 @@
 import { Data } from "@shared/modules/Data"
 import { mapDOM } from "../../../modules/GetDOM"
 import { CreateElement } from "../../../modules/CreateElement";
+import { searchListStyle } from "../../../styles/SearchListStyle";
 
 /** 글 목록을 사용자에게 보여주기 */
 export function SearchListView(arrData : Array<Data>){
@@ -13,7 +14,7 @@ export function SearchListView(arrData : Array<Data>){
     const textData = `${nIdx+1}. ${arrData[nIdx].head}`;
   
     //TODO : Style 정하기 :) 
-    const elem = CreateElement({elem: "div", property : { textContent : textData }});
+    const elem = CreateElement({elem: "div", property : { textContent : textData }, style : searchListStyle});
     mainElem?.appendChild(elem);
   }
 }
