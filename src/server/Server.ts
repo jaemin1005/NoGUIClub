@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use("/public", express.static("public"));
 
 //* 타입스크립트 전송 (디버깅용입니다)
-app.use("/dist/src", express.static("src"));
+app.use("/src", express.static("src"));
 app.use("/dist", express.static("dist"));
 
 //* idnex Page 전송
