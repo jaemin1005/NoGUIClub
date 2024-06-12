@@ -1,24 +1,24 @@
 import { Command, ICommandData, SearchCmd } from "@shared/interface/ICommand";
 
 /** Command인제 체커하는 함수 */
-function IsCommand(command : string, subCommand : string | null) : Command | null{
+function IsCommand(command: string, subCommand: string | null): Command | null {
 
-  switch(command){
+  switch (command) {
     case "search":
-      if(subCommand === "-f" || subCommand === "-g" || subCommand === null){
-        return { main : command, sub : subCommand, value : "1"}
+      if (subCommand === "-f" || subCommand === "-g" || subCommand === null) {
+        return { main: command, sub: subCommand, value: "1" }
       }
       break;
     case "create":
-      if(subCommand === "-m" || subCommand === null){
-        return {main : command, sub : subCommand, value : null}
+      if (subCommand === "-m" || subCommand === null) {
+        return { main: command, sub: subCommand, value: null }
       }
       break;
     case "help":
-      if(subCommand === "-d" || subCommand === null){
-        return {main : command, sub : subCommand, value : null}
+      if (subCommand === "-d" || subCommand === null) {
+        return { main: command, sub: subCommand, value: null }
       }
-     break;
+      break;
     default:
       return null;
   }
@@ -30,22 +30,38 @@ function IsCommand(command : string, subCommand : string | null) : Command | nul
  * @param strCommand
  * @returns 
  */
-export function CheckCommand(strCommand : string) : ICommandData | null{
-  
+export function CheckCommand(strCommand: string): ICommandData | null {
+
   const splitCommand = strCommand.split(" ");
 
-  if(strCommand.length > 2 && splitCommand[0] === "ngc"){
+  if(splitCommand.length >= 2 && splitCommand[0] === "ngc") {
     const header = splitCommand[0];
     const command = splitCommand[1];
-    const subCommand = splitCommand[3] !== undefined ? splitCommand[2] : null;
-    const value = splitCommand[3] === undefined ? (splitCommand[2] !== undefined ? splitCommand[2] : null)  : splitCommand[3];
-    
-    const isCommand = IsCommand(command, subCommand);
-    
-    if(isCommand){
-      return {header : header, command : isCommand, value : value}
+    let subCommand : string | null = null;
+    let value : string | null = null;
+
+    if (splitCommand.length >= 3) {
+      if(splitCommand[2].length === 2 && splitCommand[2][0] === '-' )
+      {
+        subCommand = splitCommand[2];
+      }
+
+      else{
+        value = splitCommand.slice(2).join(" ");
+      }
+
+      if(value === null && splitCommand.length >= 4){
+        value = splitCommand.slice(3).join(" ");
+      }
     }
-    else{
+
+    console.log(`${header} ${command} ${subCommand} ${value}`);
+
+    const isCommand = IsCommand(command, subCommand);
+    if (isCommand) {
+      return { header: header, command: isCommand, value: value }
+    }
+    else {
       return null;
     }
   }
@@ -53,7 +69,7 @@ export function CheckCommand(strCommand : string) : ICommandData | null{
   //* Default
   //* Command가 아닐 경우 default로 Search Command를 보낸다.
   //* 명령어가 아닌 경우 return null로 반환하자  
-  else{
+  else {
     // const command : SearchCmd = {main : "search", sub: null, value : "1"}
     // return {header : "ngc", command : command , value : strCommand};
     return null;
@@ -65,11 +81,11 @@ export function CheckCommand(strCommand : string) : ICommandData | null{
  * @param reqData 
  * @returns 
  */
-export function CorrectCommand(reqData : ICommandData) : boolean{
+export function CorrectCommand(reqData: ICommandData): boolean {
   const command = reqData.command.main;
 
-  switch(command){
-    case "search": 
+  switch (command) {
+    case "search":
       return true;
     case "create":
       return true;

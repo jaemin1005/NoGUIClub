@@ -12,14 +12,8 @@ import { ICommandData } from "@shared/interface/ICommand";
 import { POSTFetch } from "client/modules/POSTFetch";
 import { SearchListView } from "./SearchListView";
 import { DeleteView } from "client/modules/DeleteView";
-<<<<<<< HEAD
 import { theme } from "client/modules/Theme";
 import { ContourElem } from "client/controllers/ContourElem";
-
-=======
-import { ContourElem } from "client/controllers/ContourElem";
-import { theme } from "client/modules/Theme";
->>>>>>> jaemin1005/issue29
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
