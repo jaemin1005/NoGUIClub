@@ -6,7 +6,7 @@ import { ESCQuitFunc } from "./EscQuitFunc";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { EscSaveFunc } from "./EscSaveFunc"
 import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
-import { InitStateView } from "client/components/InitStateView";
+import { InitStateView } from "client/controllers/InitStateView";
 
 //* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent extends CommandKeyboardEvent<"input">{

@@ -1,4 +1,4 @@
-import { ExecCmd } from "../components/ExecCommandComponent.js";
+import { ExecCmd } from "../controllers/ExecCommandComponent.js";
 
 /** Input KeyDown Type */
 type KeyDownFunc = (elem : HTMLInputElement, idx : number) => number;

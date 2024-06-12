@@ -1,6 +1,6 @@
 import { ForceFocus } from "./modules/Focus";
 import { AdjustWidth, keydownEvent} from "./modules/KeyboardEvent";
-import { eventController } from "./components/EventController";
+import { eventController } from "./controllers/EventController";
 import { NormalEvent } from "./modules/ArrNormalEvent";
 
 

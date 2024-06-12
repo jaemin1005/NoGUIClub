@@ -4,7 +4,7 @@ import { mapDOM } from "../../../modules/GetDOM"
 import { IData } from "@shared/interface/IData";
 import { SearchListView } from "./SearchListView";
 import { ICommandData, SearchCmd } from "@shared/interface/ICommand";
-import { eventController } from "client/components/EventController";
+import { eventController } from "client/controllers/EventController";
 import { ArrSearchEvent } from "./ArrSearchEvent";
 import { ClearView } from "client/modules/ClearView";
 
