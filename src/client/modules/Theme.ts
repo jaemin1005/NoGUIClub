@@ -1,11 +1,11 @@
 class Theme {
   __theme
 
-  constructor(theme : Theme){
+  constructor(theme : TypeTheme){
     this.__theme = theme   
   }
 
-  set Theme(value : Theme){
+  set Theme(value : TypeTheme){
     this.__theme = value;
   }
 
