@@ -15,7 +15,7 @@ function IsCommand(command: string, subCommand: string | null): Command | null {
       }
       break;
     case "help":
-      if (subCommand === "-d" || subCommand === null) {
+      if (subCommand === null) {
         return { main: command, sub: subCommand, value: null }
       }
       break;
@@ -90,6 +90,6 @@ export function CorrectCommand(reqData: ICommandData): boolean {
     case "create":
       return true;
     case "help":
-      return true;
+      return reqData.value === null ? true : false;
   }
 }
