@@ -8,6 +8,7 @@ import { ClearView } from "../../../modules/ClearView";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { ICommandData, CreateCmd } from "@shared/interface/ICommand";
 import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent";
+import { postHeadStyle } from "client/styles/PostHeadElem";
 
 /**
  * * Create의 명령어에 의해 호출된 함수
@@ -50,11 +51,7 @@ function InitView(){
     property : {
       id : `${enumPostElemName.header}`,
     },
-    style : {
-      color : "rgb(255,255,0)",
-      fontSize : "1.5rem",
-      height : "1.5rem"
-    }
+    style : postHeadStyle
   }
 
 
