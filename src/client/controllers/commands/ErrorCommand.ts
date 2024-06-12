@@ -10,11 +10,6 @@ export function AddErrorInView(errMsg : string, arrErrSubMsg : string[]){
     elem : "div",
     property : {
       textContent : errMsg
-    },
-    style : {
-      color : "Red",
-      height : "1.5rem",
-      fontSize : "1.5rem"
     }
   }
 
@@ -34,4 +29,5 @@ export function AddErrorInView(errMsg : string, arrErrSubMsg : string[]){
   }
 
   AddChildInRootElement(null, null, errorHeadElem, null, ...arrErrorSubElem);
+  AddChildInRootElement(null,null);
 }
