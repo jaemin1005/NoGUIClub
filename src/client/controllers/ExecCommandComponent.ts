@@ -1,4 +1,4 @@
-import { CheckCommand, CorrectCommand } from "../modules/CheckCommand";
+import { CheckCommand, CorrectCommand } from "./CheckCommand";
 import { ExecuteCommand } from "./commands/ExecCommand";
 import { AddErrorInView } from "./commands/ErrorCommand";
 
