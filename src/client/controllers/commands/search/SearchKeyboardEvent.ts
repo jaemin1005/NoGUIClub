@@ -3,7 +3,7 @@ import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
 import { Data } from "../../../../shared/modules/Data";
 import { IData } from "@shared/interface/IData";
 import { CreateElement } from "client/modules/CreateElement";
-import { postHeadStyle } from "client/styles/PostHeadElem";
+import { postHeadStyleMap } from "client/styles/PostHeadElem";
 import { eventController } from "client/controllers/EventController";
 import { NormalEvent } from "client/modules/ArrNormalEvent";
 import { mapDOM } from "client/modules/GetDOM";
@@ -12,6 +12,7 @@ import { ICommandData } from "@shared/interface/ICommand";
 import { POSTFetch } from "client/modules/POSTFetch";
 import { SearchListView } from "./SearchListView";
 import { DeleteView } from "client/modules/DeleteView";
+import { theme } from "client/modules/Theme";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
@@ -56,7 +57,7 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
     const data = arrData[num-1];
 
-    const head = CreateElement({elem : "div", property : {textContent : data.head}, style : postHeadStyle })
+    const head = CreateElement({elem : "div", property : {textContent : data.head}, style : postHeadStyleMap.get(theme.Theme) })
     const body : Array<Element> = []
     
     data.body.forEach(textcontent => {
