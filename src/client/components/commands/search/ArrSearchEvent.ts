@@ -15,12 +15,17 @@ export function ArrSearchEvent(searchKeyboardEvent : SearchKeyboardEvent){
     func : (event) => searchKeyboardEvent.Escape(event)
   }
 
+  const arrow : IEventMap<"keydown", HTMLInputElement> = {
+    type : "keydown",
+    func : (event) => searchKeyboardEvent.Arrow(event)
+  }
+
   const adjust : IEventMap<"keydown", HTMLInputElement> = {
     type : "keydown",
     func : AdjustWidth()
   }
 
-  return [enter, escape, adjust];
+  return [enter, escape, arrow, adjust];
 }
 
 
