@@ -1,10 +1,20 @@
 import mysql = require("mysql");
 
-export class DataBase {
+export abstract class DataBase {
 
   db: mysql.Connection;
+  private __host
+  private __user
+  private __password
+  private __databaseName
 
   constructor(host: string, user: string, password: string, databaseName: string) {
+    
+    this.__host = host
+    this.__user = user
+    this.__password = password
+    this.__databaseName = databaseName
+
     this.db = mysql.createConnection({
       host: host,
       user: user,
@@ -15,9 +25,12 @@ export class DataBase {
     this.Connect();
   }
 
-  Connect() {
+  Connect(cbfunc? : () => void) {
     this.db.connect((err) => {
-      if (err) throw new Error("DB Connect Error : " + err.stack);
+      if (err) this.HandlingError(err);
+      
+      if(cbfunc) cbfunc();
+      
       console.log("Succcess Connect : " + this.db.threadId);
     });
   }
@@ -39,5 +52,32 @@ export class DataBase {
       console.log("Success Disconnect")
     })
   }
+
+  //* https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html
+  //* Errono 확인하고 처리.
+  HandlingError(err : mysql.MysqlError){
+    if(err.errno === 1049) this.CrateDatabase();
+    else{
+      throw new Error(err.stack);
+    }
+  }
+
+  //* ER_BAD_DB_ERROR: Unknown database
+  private CrateDatabase(){
+    
+    this.db = mysql.createConnection({
+      host : this.__host,
+      user : this.__user,
+      password : this.__password,
+    })
+
+    this.Connect( async () => {
+      await this.ExecQuery(`CREATE DATABASE ${this.__databaseName}`);
+      await this.ExecQuery(`USE ${this.__databaseName}`);
+      this.CreateTable();
+    })
+  }
+
+  abstract CreateTable() : void
 }
 
