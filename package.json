@@ -1,33 +1,31 @@
 {
-  "devDependencies": {
-    "@types/express": "^4.17.21",
-    "@types/mysql": "^2.15.26",
-    "@types/node": "^20.12.12",
-    "dotenv": "^16.4.5",
-    "ts-node": "^10.9.2",
-    "tsc-alias": "^1.8.10",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.4.5"
-  },
-  "name": "noguiclub",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.19.2",
-    "mysql": "^2.18.1",
-    "undici-types": "^5.26.5"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-server": "tsc --project src/server/tsconfig.json && tsc-alias --project src/server/tsconfig.json",
-    "build-client": "tsc --project src/client/tsconfig.json && tsc-alias --project src/client/tsconfig.json",
-    "build-both": "npm run build-server && npm run build-client",
-    "start-server": "ts-node --project src/server/tsconfig.json src/server/server.ts",
-    "start-client": "ts-node --project src/client/tsconfig.json src/client/index.ts",
-    "start": "npm run build-server && npm run build-client && npm run start-server && npm run start-client"
-  },
-  "author": "",
-  "license": "ISC",
-  "description": ""
+	"devDependencies": {
+		"@types/express": "^4.17.21",
+		"@types/mysql": "^2.15.26",
+		"@types/node": "^20.12.12",
+		"dotenv": "^16.4.5",
+		"ts-node": "^10.9.2",
+		"tsc-alias": "^1.8.10",
+		"tsconfig-paths": "^4.2.0",
+		"typescript": "^5.4.5"
+	},
+	"name": "noguiclub",
+	"version": "1.0.0",
+	"main": "index.js",
+	"dependencies": {
+		"body-parser": "^1.20.2",
+		"express": "^4.19.2",
+		"mysql": "^2.18.1",
+		"undici-types": "^5.26.5"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build-server": "tsc --project src/server/tsconfig.json && tsc-alias --project src/server/tsconfig.json",
+		"build-client": "tsc --project src/client/tsconfig.json && tsc-alias --project src/client/tsconfig.json",
+		"build-both": "npm run build-server && npm run build-client",
+		"start": "ts-node -r tsconfig-paths/register src/server/server.ts"
+	},
+	"author": "",
+	"license": "ISC",
+	"description": ""
 }
