@@ -23,6 +23,10 @@ class NGCDatabase extends DataBase{
     const result = await this.ExecQuery(query);
     return result;
   }
+
+  CreateTable(){
+    this.ExecQuery("Create Table post_table ( head TEXT, date INT, user_id VARCHAR(20), create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, file_name TEXT NOT NULL, keywords TEXT NOT NULL )");
+  }
 }
 
-export const db = new NGCDatabase("localhost", "root", "password", "NoGUIClub");
+export const db = new NGCDatabase("localhost", "root", "password", "dummy");
