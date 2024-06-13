@@ -4,6 +4,16 @@ import { TransArrStrIntoStr } from "@shared/modules/TransArrStrIntoStr"
 import { GetKeywords } from "./GetKeyword";
 import { ICommandData } from "@shared/interface/ICommand";
 
+require("dotenv").config();
+
+const HOST = process.env.DATABASE_HOST || "localhost";
+const USER = process.env.DATABASE_USER || "root";
+const PASSWORD = process.env.DATABASE_PASSWORD || "password";
+const DATABASE_NAME = process.env.DATABSE_NAME || "NoGUIClub";
+
+
+
+
 class NGCDatabase extends DataBase{
 
   SavePost(data : Data, fileName : string){
@@ -29,4 +39,4 @@ class NGCDatabase extends DataBase{
   }
 }
 
-export const db = new NGCDatabase("localhost", "root", "password", "dummy");
+export const db = new NGCDatabase(HOST, USER, PASSWORD, DATABASE_NAME);
