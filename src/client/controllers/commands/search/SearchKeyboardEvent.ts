@@ -14,6 +14,7 @@ import { SearchListView } from "./SearchListView";
 import { DeleteView } from "client/modules/DeleteView";
 import { theme } from "client/modules/Theme";
 import { ContourElem } from "client/controllers/ContourElem";
+import { customDate } from "client/modules/CustomDate";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
@@ -59,6 +60,7 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
     const data = arrData[num-1];
 
     const head = CreateElement({elem : "div", property : {textContent : data.head}, style : postHeadStyleMap.get(theme.Theme) })
+    const date = CreateElement({elem : "div", property : {textContent : customDate.UnixIntoTime(data.date)}});
     const body : Array<Element> = []
     
     data.body.forEach(textcontent => {
@@ -68,7 +70,7 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
     InitStateView();
     ContourElem();
-    AddChildInRootElement(null, null, head, null, null, ...body);
+    AddChildInRootElement(null, null, head, date, null, null, ...body);
     AddChildInRootElement(null, null);
     ContourElem();
     eventController.AddStash(NormalEvent());
