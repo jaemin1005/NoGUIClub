@@ -33,9 +33,14 @@ class IndexedDB {
     })
   }
 
-  async Add(table : string, obj : {}) : Promise<boolean>{
+  IsCorrect(table : string) {
+    if(!this.__db === null) throw new Error("존재하지 않는 DB");
+    if(!this.__tables.find(str => str == table)) throw new Error("존재하지 않는 테이블");
+  }
 
-    if(!this.__tables.find((str) => str == table)) throw new Error("존재하지 않는 테이블");
+  async Add(table : string, obj : {}) : Promise<boolean>{
+  
+    this.IsCorrect(table);
 
     const transaction = this.__db.transaction(table, "readwrite");
     const objStore = transaction.objectStore(table);
@@ -45,5 +50,23 @@ class IndexedDB {
       transaction.oncomplete = (event) => res(true);
       transaction.onerror = (event) => rej(false);
     })
+  }
+
+  async Get(table : string, key : number){
+    
+    this.IsCorrect(table);
+    
+    const transaction = this.__db.transaction(table, "readonly");
+    const objStore = transaction.objectStore(table);
+    const request = objStore.get(key);
+    
+    return new Promise((resolve, reject) => {
+      request.onsuccess = () => {
+        resolve(request.result);
+      };
+      request.onerror = () => {
+        reject(request.error);
+      };
+    });
   }
 }
