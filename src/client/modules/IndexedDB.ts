@@ -32,4 +32,18 @@ class IndexedDB {
       }
     })
   }
+
+  async Add(table : string, obj : {}) : Promise<boolean>{
+
+    if(!this.__tables.find((str) => str == table)) throw new Error("존재하지 않는 테이블");
+
+    const transaction = this.__db.transaction(table, "readwrite");
+    const objStore = transaction.objectStore(table);
+    objStore.add(obj);
+
+    return await new Promise((res, rej) => {
+      transaction.oncomplete = (event) => res(true);
+      transaction.onerror = (event) => rej(false);
+    })
+  }
 }
