@@ -69,4 +69,21 @@ class IndexedDB {
       };
     });
   }
+
+  async GetAll<T>(table : string, keyRange? : IDBKeyRange) : Promise<T[] | DOMException>  {
+    this.IsCorrect(table);
+
+    const transaction = this.__db.transaction(table, "readonly");
+    const objStore = transaction.objectStore(table);
+    const request : IDBRequest<T[]> = objStore.getAll(keyRange);
+
+    return new Promise((res, rej) => {
+      request.onsuccess = () => {
+        res(request.result);
+      };
+      request.onerror = () => {
+        rej(request.error);
+      }
+    })
+  }
 }
