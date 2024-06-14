@@ -52,7 +52,7 @@ class IndexedDB {
     })
   }
 
-  async Get(table : string, key : number){
+  async Get<T>(table : string, key : number){
     
     this.IsCorrect(table);
     
@@ -70,7 +70,7 @@ class IndexedDB {
     });
   }
 
-  async GetAll<T>(table : string, keyRange? : IDBKeyRange) : Promise<T[] | DOMException>  {
+  async GetAll<T>(table : string, keyRange? : IDBKeyRange) : Promise<T[] | DOMException> {
     this.IsCorrect(table);
 
     const transaction = this.__db.transaction(table, "readonly");
