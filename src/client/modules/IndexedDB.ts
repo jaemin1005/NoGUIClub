@@ -1,6 +1,17 @@
 interface IDBTable{
   name : string,
-  obj : {}
+  keys: string[]
+}
+
+class IndexedDBTable<T> implements IDBTable {
+  name: string;
+  keys: string[]
+
+  /** keys는 객체의 키의 묶음이어야 합니다. */
+  constructor(name : string, keys : string[]){
+    this.name = name;
+    this.keys = keys
+  }
 }
 
 class IndexedDB {
@@ -23,7 +34,7 @@ class IndexedDB {
         for(const table of this.__tables){
           const objStore = db.createObjectStore(table.name, {autoIncrement: true});
           
-          Object.keys(table.obj).forEach(key => {
+            table.keys.forEach(key => {
             objStore.createIndex(key, key, {unique : false});
           })
         }
@@ -94,5 +105,18 @@ class IndexedDB {
         rej(request.error);
       }
     })
+  }
+}
+
+class DummyClass{
+  name
+  age
+  constructor(name : string, age : number){
+    this.name = name;
+    this.age = age;
+  }
+
+  hello(){
+    console.log("hello");
   }
 }
