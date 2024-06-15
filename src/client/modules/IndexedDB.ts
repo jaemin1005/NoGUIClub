@@ -1,9 +1,14 @@
+interface IDBTable{
+  name : string,
+  obj : {}
+}
+
 class IndexedDB {
   private __db! : IDBDatabase
   private __dbName;
   private __tables;
 
-  constructor(db : string, tables : string[]){
+  constructor(db : string, tables : Array<IDBTable>){
     this.__dbName = db;
     this.__tables = tables
   }
@@ -16,7 +21,11 @@ class IndexedDB {
         const db = open.result;
 
         for(const table of this.__tables){
-          db.createObjectStore(table, {autoIncrement: true});
+          const objStore = db.createObjectStore(table.name, {autoIncrement: true});
+          
+          Object.keys(table.obj).forEach(key => {
+            objStore.createIndex(key, key, {unique : false});
+          })
         }
       }
   
@@ -35,7 +44,7 @@ class IndexedDB {
 
   IsCorrect(table : string) {
     if(!this.__db === null) throw new Error("존재하지 않는 DB");
-    if(!this.__tables.find(str => str == table)) throw new Error("존재하지 않는 테이블");
+    if(!this.__tables.find(str => str.name == table)) throw new Error("존재하지 않는 테이블");
   }
 
   async Add(table : string, obj : {}) : Promise<boolean>{
