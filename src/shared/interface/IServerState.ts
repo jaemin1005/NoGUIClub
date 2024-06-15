@@ -1,0 +1,3 @@
+interface IServerState {
+  MySQLConnect : boolean
+}
