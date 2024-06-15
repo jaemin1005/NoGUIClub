@@ -93,16 +93,3 @@ class IndexedDB {
     })
   }
 }
-
-class DummyClass{
-  name
-  age
-  constructor(name : string, age : number){
-    this.name = name;
-    this.age = age;
-  }
-
-  hello(){
-    console.log("hello");
-  }
-}
