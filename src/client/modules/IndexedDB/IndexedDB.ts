@@ -1,6 +1,6 @@
 import { IndexedDBTable, IDBTable } from "./IndexedDBTable";
 
-class IndexedDB {
+export class IndexedDB {
   private __db! : IDBDatabase
   private __dbName;
   private __tables;
