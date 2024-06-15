@@ -1,4 +1,4 @@
-import { browserName } from "client/modules/GetUsingBrowswer"
+import { browserName } from "client/modules/GetUsingBrowser"
 import { osName } from "client/modules/GetUsingOS"
 import { POSTFetch } from "client/modules/POSTFetch"
 
