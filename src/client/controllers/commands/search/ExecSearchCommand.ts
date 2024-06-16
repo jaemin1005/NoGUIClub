@@ -14,7 +14,7 @@ export function ExecSearchCmd(commandData : ICommandData, command : SearchCmd){
     SearchSuccessCbFunc(data, commandData)})
 }
 
-async function SearchSuccessCbFunc(data : IData[], commandData : ICommandData){
+export async function SearchSuccessCbFunc(data : IData[], commandData : ICommandData){
   const elem = mapDOM.GetDOM("command-text")! as HTMLInputElement;
   ClearView(mapDOM.GetDOM("main-view")!);
   const keyboardEvent = new SearchKeyboardEvent(elem, commandData);
