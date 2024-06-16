@@ -1,4 +1,3 @@
-import { POSTFetch } from "../../../modules/POSTFetch"
 import { SearchKeyboardEvent } from "./SearchKeyboardEvent"
 import { mapDOM } from "../../../modules/GetDOM"
 import { IData } from "@shared/interface/IData";
@@ -7,9 +6,10 @@ import { ICommandData, SearchCmd } from "@shared/interface/ICommand";
 import { eventController } from "client/controllers/EventController";
 import { ArrSearchEvent } from "./ArrSearchEvent";
 import { ClearView } from "client/modules/ClearView";
+import { SendData } from "../SendData";
 
 export function ExecSearchCmd(commandData : ICommandData, command : SearchCmd){
-  POSTFetch("/search", JSON.stringify(commandData), async (res) => {
+  SendData("/search", commandData, async (res) => {
     const data = await res.json();
     SearchSuccessCbFunc(data, commandData)})
 }
