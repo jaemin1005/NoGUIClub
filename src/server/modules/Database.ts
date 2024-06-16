@@ -7,6 +7,8 @@ export abstract class DataBase {
   private __user
   private __password
   private __databaseName
+  
+  isConnect
 
   constructor(host: string, user: string, password: string, databaseName: string) {
     
@@ -14,6 +16,7 @@ export abstract class DataBase {
     this.__user = user
     this.__password = password
     this.__databaseName = databaseName
+    this.isConnect = false;
 
     this.db = mysql.createConnection({
       host: host,
@@ -27,10 +30,11 @@ export abstract class DataBase {
 
   Connect(cbfunc? : () => void) {
     this.db.connect((err) => {
-      if (err) this.HandlingError(err);
+      if (err) { this.HandlingError(err); return; }
       
       if(cbfunc) cbfunc();
       
+      this.isConnect = true;
       console.log("Succcess Connect : " + this.db.threadId);
     });
   }
@@ -57,8 +61,9 @@ export abstract class DataBase {
   //* Errono 확인하고 처리.
   HandlingError(err : mysql.MysqlError){
     if(err.errno === 1049) this.CrateDatabase();
+    else if(err.errno === 2002) this.isConnect = false;
     else{
-      throw new Error(err.stack);
+      this.isConnect = false;
     }
   }
 
