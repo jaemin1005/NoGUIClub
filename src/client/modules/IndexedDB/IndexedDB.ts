@@ -58,7 +58,7 @@ export class IndexedDB {
     })
   }
 
-  async Get<T>(table : string, min : number, max : number, keyName : string, range? : IDBKeyRange ) : Promise<Array<T>>{
+  async Get<T>(table : string, min : number, max : number, keyName : string, range? : IDBKeyRange ) : Promise<Array<T> | null>{
     
     this.IsCorrect(table);
     
@@ -80,12 +80,11 @@ export class IndexedDB {
           arr[arr.length] = cursorWithValue.value as T;
         }
 
-        else{
-          count++;
-        }
+        count++
+        cursorWithValue.continue();
       }
       else{
-        return rej(null);
+        return res(arr);
       }
     })
   }
