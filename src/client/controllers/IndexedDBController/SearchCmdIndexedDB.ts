@@ -3,19 +3,13 @@ import { StringToNumber } from "@shared/modules/StringToNumber";
 import { indexedDB } from "./CallIndexedDB";
 import { DbTableName } from "client/modules/Enum/EnumDbTableName";
 import { IData } from "@shared/interface/IData";
-import { SearchSuccessCbFunc } from "../commands/search/ExecSearchCbFunc";
 
-export const SearchCmdIndexedDB = async (data : ICommandData) => {
-  if(data.command.value === null) return;
+export const SearchCmdIndexedDB = (data : ICommandData) : Promise<IData[] | null> => {
+  if(data.command.value === null) data.command.value = "1"
   
   const value = StringToNumber(data.command.value);
   const min = (value - 1) * 10;
   const max = value * 10 - 1;
 
-
-  const datas = await indexedDB.Get<IData>(DbTableName.POST, min, max, "date");
-  
-  if(datas === null) return;
-
-  SearchSuccessCbFunc(datas, data);
+  return indexedDB.Get<IData>(DbTableName.POST, min, max, "date");
 }
