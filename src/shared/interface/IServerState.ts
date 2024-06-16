@@ -1,3 +1,3 @@
-interface IServerState {
+export interface IServerState {
   MySQLConnect : boolean
 }
