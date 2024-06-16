@@ -1,24 +1,27 @@
 import { browserName } from "client/modules/GetUsingBrowser"
 import { osName } from "client/modules/GetUsingOS"
 import { POSTFetch } from "client/modules/POSTFetch"
+import { IServerState } from "@shared/interface/IServerState"
 
 //* 초기 서버 상태, Init
 const serverState : IServerState = {
   MySQLConnect : false,
 }
 
-const userInfo = {
+const userInfo : IUserInfo = {
   browserName : browserName,
   osName : osName
 }
 
-await POSTFetch("/userinfo", JSON.stringify(userInfo), async (res)  => {
+await new Promise((resolve,reject) => POSTFetch("/userinfo", JSON.stringify(userInfo), async (res)  => {
   const data = await res.json() as IServerState
   let key : keyof typeof data
 
   for(key in data){
     serverState[key] = data[key];
   }
-})
+
+  resolve(null);
+}, () => {reject()}))
 
 export {serverState};
