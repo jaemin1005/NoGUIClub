@@ -22,7 +22,7 @@ export function EscSaveFunc(rootElem : Element){
     POSTFetch("/create", JSON.stringify(data), (res)=> {SaveSuccessFunc(rootElem)}, (res)=> {SaveFailFunc(rootElem)});
 }
 
-function SaveSuccessFunc(rootElem : Element){ 
+export function SaveSuccessFunc(rootElem : Element){ 
     const div = CreateElement({elem :"div"});
     div.textContent = "글 저장에 성공하였습니다";
     rootElem.appendChild(div);
@@ -34,7 +34,7 @@ function SaveSuccessFunc(rootElem : Element){
  * TODO 글 임시 저장?
  * @param rootElem 
  */
-function SaveFailFunc(rootElem : Element){
+export function SaveFailFunc(rootElem : Element){
     const div = CreateElement({elem : "div"});
     div.textContent = "글 저장에 실패하였습니다";
     rootElem.appendChild(div);
