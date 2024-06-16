@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import { LoadFile } from "./modules/LoadFile";
 import { SavePostFunc } from "./controllers/SavePostFunc";
 import { SearchFunc } from "./controllers/SearchFunc";
+import { UserInfoFunc } from "./controllers/UserInfoFunc";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/dist", express.static("dist"));
 app.get("/", (req, res) => {LoadFile("index.html", res);});
 app.post("/create",SavePostFunc);
 app.post("/search", SearchFunc);
+app.post("/userinfo",UserInfoFunc);
 
 app.listen(3000, () => {
   console.log("서버 시작 되었습니다.");
