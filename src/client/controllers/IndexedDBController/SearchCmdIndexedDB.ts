@@ -3,7 +3,7 @@ import { StringToNumber } from "@shared/modules/StringToNumber";
 import { indexedDB } from "./CallIndexedDB";
 import { DbTableName } from "client/modules/Enum/EnumDbTableName";
 import { IData } from "@shared/interface/IData";
-import { SearchSuccessCbFunc } from "../commands/search/ExecSearchCommand";
+import { SearchSuccessCbFunc } from "../commands/search/ExecSearchCbFunc";
 
 export const SearchCmdIndexedDB = async (data : ICommandData) => {
   if(data.command.value === null) return;
