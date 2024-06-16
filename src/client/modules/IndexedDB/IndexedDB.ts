@@ -58,22 +58,36 @@ export class IndexedDB {
     })
   }
 
-  async Get<T>(table : string, key : number){
+  async Get<T>(table : string, min : number, max : number, keyName : string, range? : IDBKeyRange ) : Promise<Array<T>>{
     
     this.IsCorrect(table);
     
     const transaction = this.__db.transaction(table, "readonly");
     const objStore = transaction.objectStore(table);
-    const request = objStore.get(key);
-    
-    return new Promise((resolve, reject) => {
-      request.onsuccess = () => {
-        resolve(request.result);
-      };
-      request.onerror = () => {
-        reject(request.error);
-      };
-    });
+    const index = objStore.index(keyName)
+    const arr : Array<T> = [];
+    let count = 0;
+
+    return new Promise((res,rej) => index.openCursor(range, "prev").onsuccess = (event) => {
+      const cursorWithValue : IDBCursorWithValue | null = (event.target as IDBRequest).result;
+      if(cursorWithValue){
+
+        if(count > max){
+          return res(arr);
+        }
+
+        if(count >= min && count <= max){
+          arr[arr.length] = cursorWithValue.value as T;
+        }
+
+        else{
+          count++;
+        }
+      }
+      else{
+        return rej(null);
+      }
+    })
   }
 
   async GetAll<T>(table : string, keyRange? : IDBKeyRange) : Promise<T[] | DOMException> {
