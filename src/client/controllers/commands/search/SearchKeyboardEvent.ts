@@ -9,12 +9,14 @@ import { NormalEvent } from "client/modules/ArrNormalEvent";
 import { mapDOM } from "client/modules/GetDOM";
 import { InitStateView } from "client/controllers/InitStateView";
 import { ICommandData } from "@shared/interface/ICommand";
-import { POSTFetch } from "client/modules/POSTFetch";
 import { SearchListView } from "./SearchListView";
 import { DeleteView } from "client/modules/DeleteView";
 import { theme } from "client/modules/Theme";
 import { ContourElem } from "client/controllers/ContourElem";
 import { customDate } from "client/modules/CustomDate";
+import { serverState } from "client/controllers/GetServerState";
+import { SearchCmdIndexedDB } from "client/controllers/IndexedDBController/SearchCmdIndexedDB";
+import { POSTFetchReturnObj } from "client/modules/POSTFetchReturnObj";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
@@ -81,7 +83,7 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
       this.ArrowCbFunc(event.key);
   }
 
-  ArrowCbFunc(key : "ArrowRight" | "ArrowLeft"){
+  async ArrowCbFunc(key : "ArrowRight" | "ArrowLeft"){
     const nTempPage = this.nCurPage;
     key === "ArrowRight" ? this.nCurPage += 1  : this.nCurPage -= 1;
     
@@ -97,21 +99,18 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
     else{
       this.commandData.command.value = this.nCurPage.toString();
-      POSTFetch("/search", JSON.stringify(this.commandData), async (res) => {
-        let data : IData[] = await res.json(); 
 
-        if(data.length === 0){
-          this.nCurPage = nTempPage;
-          return;
-        }
-        
-        this.SetMapPageData(this.nCurPage, data);
-        DeleteView(mapDOM.GetDOM("main-view")!);
-        SearchListView(this.GetCurrentPage()!);
-      }, 
-      (res) => { 
-        this.nCurPage = nTempPage 
-      })
+      const data = serverState.MySQLConnect === false ? await SearchCmdIndexedDB(this.commandData) :
+        await POSTFetchReturnObj<IData[]>("/search", JSON.stringify(this.commandData));
+
+      if(data === null || data.length === 0){
+        this.nCurPage = nTempPage;
+        return;
+      }
+    
+      this.SetMapPageData(this.nCurPage, data);
+      DeleteView(mapDOM.GetDOM("main-view")!);
+      SearchListView(this.GetCurrentPage()!);
     }
   }
 
