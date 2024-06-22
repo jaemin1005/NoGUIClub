@@ -1,0 +1,26 @@
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": "> 0.25%, not dead",
+      "useBuiltIns": "usage",
+      "corejs": 3
+    }],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-runtime", {
+      "corejs": 3,
+      "helpers": true,
+      "regenerator": true
+    }],
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": {
+          "@shared": "./src/shared"
+        }
+      }
+    ]
+  ]
+}
