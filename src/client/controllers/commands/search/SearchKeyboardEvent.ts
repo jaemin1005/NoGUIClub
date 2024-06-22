@@ -2,21 +2,21 @@ import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
 import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
 import { Data } from "../../../../shared/modules/Data";
 import { IData } from "@shared/interface/IData";
-import { CreateElement } from "client/modules/CreateElement";
-import { postHeadStyleMap } from "client/styles/PostHeadElem";
-import { eventController } from "client/controllers/EventController";
-import { NormalEvent } from "client/modules/ArrNormalEvent";
-import { mapDOM } from "client/modules/GetDOM";
-import { InitStateView } from "client/controllers/InitStateView";
+import { CreateElement } from "@client/modules/CreateElement";
+import { postHeadStyleMap } from "@client/styles/PostHeadElem";
+import { eventController } from "@client/controllers/EventController";
+import { NormalEvent } from "@client/modules/ArrNormalEvent";
+import { mapDOM } from "@client/modules/GetDOM";
+import { InitStateView } from "@client/controllers/InitStateView";
 import { ICommandData } from "@shared/interface/ICommand";
 import { SearchListView } from "./SearchListView";
-import { DeleteView } from "client/modules/DeleteView";
-import { theme } from "client/modules/Theme";
-import { ContourElem } from "client/controllers/ContourElem";
-import { customDate } from "client/modules/CustomDate";
-import { serverState } from "client/controllers/GetServerState";
-import { SearchCmdIndexedDB } from "client/controllers/IndexedDBController/SearchCmdIndexedDB";
-import { POSTFetchReturnObj } from "client/modules/POSTFetchReturnObj";
+import { DeleteView } from "@client/modules/DeleteView";
+import { theme } from "@client/modules/Theme";
+import { ContourElem } from "@client/controllers/ContourElem";
+import { customDate } from "@client/modules/CustomDate";
+import { serverState } from "@client/controllers/GetServerState";
+import { SearchCmdIndexedDB } from "@client/controllers/IndexedDBController/SearchCmdIndexedDB";
+import { POSTFetchReturnObj } from "@client/modules/POSTFetchReturnObj";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
