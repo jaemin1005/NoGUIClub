@@ -1,4 +1,4 @@
-import { CreateElement } from "client/modules/CreateElement";
+import { CreateElement } from "@client/modules/CreateElement";
 
 export function SaveSuccessFunc(rootElem : Element){ 
   const div = CreateElement({elem :"div"});
