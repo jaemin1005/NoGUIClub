@@ -8,3 +8,4 @@ resources/post/*
 **/.DS_Store
 **/._.DS_Store
 .env
+babel
