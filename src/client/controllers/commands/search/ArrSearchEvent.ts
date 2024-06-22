@@ -1,6 +1,6 @@
-import { AdjustWidth } from "client/modules/KeyboardEvent";
+import { AdjustWidth } from "@client/modules/KeyboardEvent";
 import { SearchKeyboardEvent } from "./SearchKeyboardEvent";
-import { mapDOM } from "client/modules/GetDOM";
+import { mapDOM } from "@client/modules/GetDOM";
 
 
 export function ArrSearchEvent(searchKeyboardEvent : SearchKeyboardEvent){
