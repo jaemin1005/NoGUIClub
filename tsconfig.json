@@ -8,7 +8,8 @@
     //* 해당 디렉토리를 기준으로 절대 경로를 사용
     "baseUrl": "./src",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@client/*": ["client/*"]
     },                                      
     "sourceMap": true,                                   /* Create source map files for emitted JavaScript files. */
     "outDir": "dist",                                   /* Specify an output folder for all emitted files. */
