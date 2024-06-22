@@ -1,6 +1,6 @@
-import { mapDOM } from "client/modules/GetDOM";
+import { mapDOM } from "@client/modules/GetDOM";
 import { ContourElem } from "./ContourElem";
-import { CreateElement } from "client/modules/CreateElement";
+import { CreateElement } from "@client/modules/CreateElement";
 
 export function ArrStringOnView(arr : string[], isContour : boolean, style?  : Partial<CSSStyleDeclaration>){
   const $mainView = mapDOM.GetDOM("main-view")!;
