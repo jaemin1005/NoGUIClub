@@ -18,7 +18,8 @@
       {
         "root": ["./src"],
         "alias": {
-          "@shared": "./src/shared"
+          "@shared": "./src/shared",
+          "@client": "./src/client"
         }
       }
     ]
