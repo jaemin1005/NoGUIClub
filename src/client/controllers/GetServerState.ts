@@ -1,6 +1,6 @@
-import { browserName } from "client/modules/GetUsingBrowser"
-import { osName } from "client/modules/GetUsingOS"
-import { POSTFetch } from "client/modules/POSTFetch"
+import { browserName } from "@client/modules/GetUsingBrowser"
+import { osName } from "@client/modules/GetUsingOS"
+import { POSTFetch } from "@client/modules/POSTFetch"
 import { IServerState } from "@shared/interface/IServerState"
 
 //* 초기 서버 상태, Init
