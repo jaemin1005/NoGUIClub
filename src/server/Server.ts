@@ -18,7 +18,8 @@ app.use("/src", express.static("src"));
 app.use("/dist", express.static("dist"));
 
 //* idnex Page 전송
-app.get("/", (req, res) => {LoadFile("index.html", res);});
+app.get("/", (req, res) => {LoadFile("webpack/index.html", res);});
+app.get("/bundle.js", (req,res) => {LoadFile("webpack/bundle.js",res);});
 app.post("/create",SavePostFunc);
 app.post("/search", SearchFunc);
 app.post("/userinfo",UserInfoFunc);
