@@ -1,4 +1,4 @@
-import { HexaIntoRGB } from "client/modules/HexaIntoRGB";
+import { HexaIntoRGB } from "@client/modules/HexaIntoRGB";
 
 const postHeadStyle : Partial<CSSStyleDeclaration> = {
   color : HexaIntoRGB("#F4BF4F"),
