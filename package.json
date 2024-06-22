@@ -13,7 +13,9 @@
 		"ts-node": "^10.9.2",
 		"tsc-alias": "^1.8.10",
 		"tsconfig-paths": "^4.2.0",
-		"typescript": "^5.4.5"
+		"typescript": "^5.4.5",
+		"webpack": "^5.92.1",
+		"webpack-cli": "^5.1.4"
 	},
 	"name": "noguiclub",
 	"version": "1.0.0",
