@@ -1,7 +1,7 @@
-import { CreateElement } from "client/modules/CreateElement";
-import { mapDOM } from "client/modules/GetDOM";
-import { theme } from "client/modules/Theme";
-import { postHeadStyleMap } from "client/styles/PostHeadElem";
+import { CreateElement } from "@client/modules/CreateElement";
+import { mapDOM } from "@client/modules/GetDOM";
+import { theme } from "@client/modules/Theme";
+import { postHeadStyleMap } from "@client/styles/PostHeadElem";
 
 const line = "-----------------------------------------------------------------------------";
 const mainView = mapDOM.GetDOM("main-view");
