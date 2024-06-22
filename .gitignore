@@ -9,3 +9,4 @@ resources/post/*
 **/._.DS_Store
 .env
 babel
+webpack
