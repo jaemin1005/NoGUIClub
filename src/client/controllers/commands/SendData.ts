@@ -1,6 +1,6 @@
-import { POSTFetch } from "client/modules/POSTFetch";
+import { POSTFetch } from "@client/modules/POSTFetch";
 import { serverState } from "../GetServerState";
-import { TypeSendData as TypeSendData } from "client/interface/TypeSendData";
+import { TypeSendData as TypeSendData } from "@client/interface/TypeSendData";
 import { ProcessIndexedDB } from "../IndexedDBController/ProcessIndexedDB";
 
 export const SendData : TypeSendData = (url, obj, cbFunc, errCbFunc) => {
