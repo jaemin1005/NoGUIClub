@@ -1,7 +1,7 @@
 import { ICommandData } from "@shared/interface/ICommand";
 import { StringToNumber } from "@shared/modules/StringToNumber";
 import { indexedDB } from "./CallIndexedDB";
-import { DbTableName } from "client/modules/Enum/EnumDbTableName";
+import { DbTableName } from "@client/modules/Enum/EnumDbTableName";
 import { IData } from "@shared/interface/IData";
 
 export const SearchCmdIndexedDB = (data : ICommandData) : Promise<IData[] | null> => {
