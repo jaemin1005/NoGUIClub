@@ -1,5 +1,5 @@
 import { Data } from "@shared/modules/Data";
-import { DataBase } from "../../modules/Databases/Database";
+import { MySql } from "../../modules/Databases/MySql";
 import { TransArrStrIntoStr } from "@shared/modules/TransArrStrIntoStr"
 import { GetKeywords } from "../../modules/GetKeyword";
 import { ICommandData } from "@shared/interface/ICommand";
@@ -14,7 +14,7 @@ const DATABASE_NAME = process.env.DATABSE_NAME || "NoGUIClub";
 
 
 
-class NGCDatabase extends DataBase{
+class NGCDatabase extends MySql{
 
   SavePost(data : Data, fileName : string){
     const query = "INSERT INTO post_table (head, file_name, date, keywords) VALUES(?,?,?,?)"
