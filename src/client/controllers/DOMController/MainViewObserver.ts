@@ -1,6 +1,6 @@
 import { DOMObserver } from "@client/modules/DOMObserver";
-import { mapDOM } from "../modules/GetDOM";
-import { IsHTMLElement } from "../modules/IsHTMLElement";
+import { mapDOM } from "../../modules/DOM/GetDOM";
+import { IsHTMLElement } from "../../modules/TypeGuard/IsHTMLElement";
 
 const $main = mapDOM.GetDOM("main")!;
 const $mainView = mapDOM.GetDOM("main-view")!;

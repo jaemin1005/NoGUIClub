@@ -1,4 +1,4 @@
-import { mapDOM } from "./GetDOM";
+import { mapDOM } from "../../modules/DOM/GetDOM";
 
 /**
  * * mainElem에 element를 넣는 클로저를 반환한다.

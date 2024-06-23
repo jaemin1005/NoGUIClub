@@ -1,7 +1,7 @@
 import { DeleteView } from "@client/modules/DeleteView";
 import { mapDOM } from "@client/modules/GetDOM";
 import { OnDisplayView } from "@client/modules/OnDisplayView";
-import { eventController } from "./EventController";
+import { eventController } from "../modules/DOM/EventController";
 import { NormalEvent } from "@client/modules/ArrNormalEvent";
 
 export function InitStateView(){

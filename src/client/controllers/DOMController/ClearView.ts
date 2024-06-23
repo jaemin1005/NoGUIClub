@@ -1,4 +1,4 @@
-import { IsHTMLElement } from "./IsHTMLElement";
+import { IsHTMLElement } from "../../modules/TypeGuard/IsHTMLElement";
 
 /**
  * * rootElem의 자식들의 상태 변경
