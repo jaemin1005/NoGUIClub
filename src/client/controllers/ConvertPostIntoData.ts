@@ -1,6 +1,6 @@
-import { IsHTMLElement } from "./IsHTMLElement";
-import { enumPostElemName } from "./Enum/EnumPostElemName";
-import { customDate } from "./CustomDate";
+import { IsHTMLElement } from "../modules/TypeGuard/IsHTMLElement";
+import { enumPostElemName } from "../modules/Enum/EnumPostElemName";
+import { customDate } from "../modules/CustomDate";
 import { Data } from "@shared/modules/Data";
 
 /** rootElem의 자식들(글 : textContnet)을 데이터로 변환한다, */
