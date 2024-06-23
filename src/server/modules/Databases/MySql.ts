@@ -1,6 +1,6 @@
 import mysql = require("mysql");
 
-export abstract class DataBase {
+export abstract class MySql {
 
   db: mysql.Connection;
   private __host
