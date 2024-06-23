@@ -1,7 +1,7 @@
-import { AdjustWidth } from "./modules/KeyboardEvent";
-import { eventController } from "./controllers/EventController";
-import { NormalEvent } from "./modules/ArrNormalEvent";
-import { mainObserver } from "./controllers/MainViewObserver";
+import { AdjustWidth } from "./controllers/Event/KeyboardEvent";
+import { eventController } from "./modules/DOM/EventController";
+import { NormalEvent } from "./controllers/Event/ArrNormalEvent";
+import { mainObserver } from "./controllers/DOMController/MainViewObserver";
 
 const $input = document.getElementById("command-text")! as HTMLInputElement;
 $input.addEventListener("input", AdjustWidth());
