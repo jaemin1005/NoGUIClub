@@ -1,4 +1,4 @@
-import { mapDOM } from "../modules/GetDOM"
+import { mapDOM } from "./GetDOM"
 
 /**
  * * 이벤트 컨트롤러
