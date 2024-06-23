@@ -1,4 +1,4 @@
-import { SimpleNAck } from "../../modules/SimpleNAck";
+import { SimpleNAck } from "../../modules/Response/SimpleNAck";
 import { IRouterCbFunc } from "../../interfaces/IRouterCbfunc";
 import { db } from "../Databases/NGCDatabase";
 import { StringToNumber } from "@shared/modules/StringToNumber";
