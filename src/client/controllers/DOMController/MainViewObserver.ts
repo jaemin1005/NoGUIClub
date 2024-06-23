@@ -1,4 +1,4 @@
-import { DOMObserver } from "@client/modules/DOMObserver";
+import { DOMObserver } from "@client/modules/DOM/DOMObserver";
 import { mapDOM } from "../../modules/DOM/GetDOM";
 import { IsHTMLElement } from "../../modules/TypeGuard/IsHTMLElement";
 
