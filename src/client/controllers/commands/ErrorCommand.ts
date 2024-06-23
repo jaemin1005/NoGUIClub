@@ -1,5 +1,5 @@
-import { AddChildInRootElement } from "../../modules/AddChildInRootElement";
-import { CreateElement } from "../../modules/CreateElement";
+import { AddChildInRootElement } from "../DOMController/AddChildInRootElement";
+import { CreateElement } from "../../modules/DOM/CreateElement";
 
 export function AddErrorInView(errMsg : string, arrErrSubMsg : string[]){
   
