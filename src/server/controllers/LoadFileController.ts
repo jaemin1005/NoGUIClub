@@ -1,5 +1,5 @@
-import { LoadFile } from "../modules/LoadFile";
-import { ModifyPath } from "../modules/ModifyPath";
+import { LoadFile } from "../modules/FileIO/LoadFile";
+import { ModifyPath } from "../modules/FileIO/ModifyPath";
 import { IRouterCbFunc } from "../interfaces/IRouterCbfunc";
 
 export const LoadFileController : IRouterCbFunc = (req, res) => {
