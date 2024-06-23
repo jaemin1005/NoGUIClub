@@ -1,22 +1,22 @@
-import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
-import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
+import { CommandKeyboardEvent } from "../CommandKeyboardEvent";
+import { AddChildInRootElement } from "../../DOMController/AddChildInRootElement";
 import { Data } from "../../../../shared/modules/Data";
 import { IData } from "@shared/interface/IData";
-import { CreateElement } from "@client/modules/CreateElement";
+import { CreateElement } from "@client/modules/DOM/CreateElement";
 import { postHeadStyleMap } from "@client/styles/PostHeadElem";
-import { eventController } from "@client/controllers/EventController";
-import { NormalEvent } from "@client/modules/ArrNormalEvent";
-import { mapDOM } from "@client/modules/GetDOM";
-import { InitStateView } from "@client/controllers/InitStateView";
+import { eventController } from "@client/modules/DOM/EventController";
+import { NormalEvent } from "@client/controllers/Event/ArrNormalEvent";
+import { mapDOM } from "@client/modules/DOM/GetDOM";
+import { InitStateView } from "@client/controllers/DOMController/InitStateView";
 import { ICommandData } from "@shared/interface/ICommand";
 import { SearchListView } from "./SearchListView";
-import { DeleteView } from "@client/modules/DeleteView";
+import { DeleteView } from "@client/controllers/DOMController/DeleteView";
 import { theme } from "@client/modules/Theme";
-import { ContourElem } from "@client/controllers/ContourElem";
+import { ContourElem } from "@client/controllers/DOMController/ContourElem";
 import { customDate } from "@client/modules/CustomDate";
 import { serverState } from "@client/controllers/GetServerState";
 import { SearchCmdIndexedDB } from "@client/controllers/IndexedDBController/SearchCmdIndexedDB";
-import { POSTFetchReturnObj } from "@client/modules/POSTFetchReturnObj";
+import { POSTFetchReturnObj } from "@client/modules/Request/POSTFetchReturnObj";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
