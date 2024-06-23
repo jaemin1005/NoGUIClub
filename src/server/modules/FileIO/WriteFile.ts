@@ -1,6 +1,6 @@
 import { Response } from "express";
-import { SimpleAck } from "./SimpleAck";
-import { SimpleNAck } from "./SimpleNAck";
+import { SimpleAck } from "../Response/SimpleAck";
+import { SimpleNAck } from "../Response/SimpleNAck";
 
 import fs = require("fs");
 
