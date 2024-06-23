@@ -1,4 +1,4 @@
-import { POSTFetch } from "@client/modules/POSTFetch";
+import { POSTFetch } from "@client/modules/Request/POSTFetch";
 import { serverState } from "./GetServerState";
 import { TypeSendData as TypeSendData } from "@client/interface/TypeSendData";
 import { ProcessIndexedDB } from "./IndexedDBController/ProcessIndexedDB";
