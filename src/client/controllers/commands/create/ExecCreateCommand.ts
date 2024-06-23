@@ -1,10 +1,10 @@
-import { mapDOM } from "../../../modules/GetDOM";
-import { contentType } from "../../../modules/ContentType";
-import { CreateElement } from "../../../modules/CreateElement";
-import { AddChildInRootElement } from "../../../modules/AddChildInRootElement";
-import { eventController } from "../../EventController";
+import { mapDOM } from "../../../modules/DOM/GetDOM";
+import { contentType } from "../../../modules/Enum/EnumContentType";
+import { CreateElement } from "../../../modules/DOM/CreateElement";
+import { AddChildInRootElement } from "../../DOMController/AddChildInRootElement";
+import { eventController } from "../../../modules/DOM/EventController";
 import { ArrCreateEvent } from "./ArrCreateEvent";
-import { ClearView } from "../../../modules/ClearView";
+import { ClearView } from "../../DOMController/ClearView";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { ICommandData, CreateCmd } from "@shared/interface/ICommand";
 import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent";
