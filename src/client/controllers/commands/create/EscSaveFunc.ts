@@ -1,6 +1,6 @@
-import { ConvertPostIntoData } from "../../../modules/ConvertPostIntoData";
-import { InitStateView } from "@client/controllers/InitStateView";
-import { SendData } from "../SendData";
+import { ConvertPostIntoData } from "../../ConvertPostIntoData";
+import { InitStateView } from "@client/controllers/DOMController/InitStateView";
+import { SendData } from "../../SendData";
 import { SaveSuccessFunc } from "./EscSaveCbFunc";
 import { SaveFailFunc } from "./EscSaveCbFunc";
 
