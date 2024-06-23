@@ -1,9 +1,9 @@
 import { IData } from "@shared/interface/IData";
 import { ICommandData } from "@shared/interface/ICommand";
-import { ClearView } from "@client/modules/ClearView";
-import { mapDOM } from "@client/modules/GetDOM";
+import { ClearView } from "@client/controllers/DOMController/ClearView";
+import { mapDOM } from "@client/modules/DOM/GetDOM";
 import { SearchKeyboardEvent } from "./SearchKeyboardEvent";
-import { eventController } from "@client/controllers/EventController";
+import { eventController } from "@client/modules/DOM/EventController";
 import { ArrSearchEvent } from "./ArrSearchEvent";
 import { SearchListView } from "./SearchListView";
 
