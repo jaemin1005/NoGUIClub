@@ -1,12 +1,12 @@
-import { SimpleNAck } from "../modules/SimpleNAck";
-import { IRouterCbFunc } from "../interfaces/IRouterCbfunc";
-import { db } from "../modules/NGCDatabase";
+import { SimpleNAck } from "../../modules/SimpleNAck";
+import { IRouterCbFunc } from "../../interfaces/IRouterCbfunc";
+import { db } from "../Databases/NGCDatabase";
 import { StringToNumber } from "@shared/modules/StringToNumber";
-import { IDbColumn } from "../interfaces/IDbColumn";
-import { ReadJsonFiles } from "../modules/ReadJSONFile"
+import { IDbColumn } from "../../interfaces/IDbColumn";
+import { ReadJsonFiles } from "../../modules/ReadJSONFile"
 import { IData } from "@shared/interface/IData";
 import { ICommandData } from "@shared/interface/ICommand";
-import { SortArrObj } from "server/modules/SortArrObj";
+import { SortArrObj } from "@server/modules/SortArrObj";
 
 /** /search POST 요청받을때 콜백되는 함수 */
 export const SearchFunc : IRouterCbFunc = async (req, res) => {
