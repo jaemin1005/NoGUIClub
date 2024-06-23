@@ -50,7 +50,8 @@ const config = {
         extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],
         alias: {
             '@shared': path.resolve(__dirname, 'src/shared'),
-            '@client': path.resolve(__dirname, 'src/client')
+            '@client': path.resolve(__dirname, 'src/client'),
+            '@server': path.resolve(__dirname, 'src/server')
         }
     },
 };
