@@ -1,12 +1,11 @@
-import { mapDOM } from "../../../modules/GetDOM";
+import { mapDOM } from "../../../modules/DOM/GetDOM";
 import { WritePost } from "./WritePost";
-import { contentType } from "../../../modules/ContentType";
-import { EnumCreateEscCmd } from "../../../modules/EnumCreateEscCmd";
+import { contentType } from "../../../modules/Enum/EnumContentType";
+import { EnumCreateEscCmd } from "../../../modules/Enum/EnumCreateEscCmd";
 import { ESCQuitFunc } from "./EscQuitFunc";
 import { enumPostElemName } from "../../../modules/Enum/EnumPostElemName";
 import { EscSaveFunc } from "./EscSaveFunc"
-import { CommandKeyboardEvent } from "../../../modules/CommandKeyboardEvent";
-import { InitStateView } from "client/controllers/InitStateView";
+import { CommandKeyboardEvent } from "../CommandKeyboardEvent";
 
 //* Create 명령어에 대한 KeyboarEvent
 export class CreateKeyboardEvent extends CommandKeyboardEvent<"input">{
