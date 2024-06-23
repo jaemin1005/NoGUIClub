@@ -1,4 +1,4 @@
-import { ProcessData } from "client/interface/TypeSendData";
+import { ProcessData } from "@client/interface/TypeSendData";
 import { ICommandData } from "@shared/interface/ICommand";
 
 export function IsICommandData(obj : ProcessData) : obj is ICommandData {
