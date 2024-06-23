@@ -1,5 +1,5 @@
-import { CreateElement } from "@client/modules/CreateElement";
-import { mapDOM } from "@client/modules/GetDOM";
+import { CreateElement } from "@client/modules/DOM/CreateElement";
+import { mapDOM } from "@client/modules/DOM/GetDOM";
 import { theme } from "@client/modules/Theme";
 import { postHeadStyleMap } from "@client/styles/PostHeadElem";
 
