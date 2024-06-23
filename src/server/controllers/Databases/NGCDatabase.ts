@@ -1,7 +1,7 @@
 import { Data } from "@shared/modules/Data";
-import { DataBase } from "./Database";
+import { DataBase } from "../../modules/Databases/Database";
 import { TransArrStrIntoStr } from "@shared/modules/TransArrStrIntoStr"
-import { GetKeywords } from "./GetKeyword";
+import { GetKeywords } from "../../modules/GetKeyword";
 import { ICommandData } from "@shared/interface/ICommand";
 
 require("dotenv").config();
