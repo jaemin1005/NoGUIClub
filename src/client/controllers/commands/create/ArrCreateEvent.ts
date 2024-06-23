@@ -1,5 +1,5 @@
 import { CreateKeyboardEvent } from "./CreateCmdKeyboardEvent";
-import { AdjustWidth } from "../../../modules/KeyboardEvent";
+import { AdjustWidth } from "../../Event/KeyboardEvent";
 
 export function ArrCreateEvent(createKeyboardEvent : CreateKeyboardEvent){
    
