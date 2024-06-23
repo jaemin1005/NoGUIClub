@@ -1,9 +1,9 @@
 import express from "express"
 import bodyParser from "body-parser";
-import { LoadFile } from "./modules/LoadFile";
-import { SavePostFunc } from "./controllers/SavePostFunc";
-import { SearchFunc } from "./controllers/SearchFunc";
-import { UserInfoFunc } from "./controllers/UserInfoFunc";
+import { LoadFile } from "./modules/FileIO/LoadFile";
+import { SavePostFunc } from "./controllers/ProcessCommand/SavePostFunc";
+import { SearchFunc } from "./controllers/ProcessCommand/SearchFunc";
+import { UserInfoFunc } from "./controllers/ProcessCommand/UserInfoFunc";
 
 const app = express();
 
