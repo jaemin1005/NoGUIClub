@@ -1,6 +1,6 @@
-import { IRouterCbFunc } from "server/interfaces/IRouterCbfunc";
-import { SimpleNAck } from "server/modules/SimpleNAck";
-import { db } from "server/modules/NGCDatabase";
+import { IRouterCbFunc } from "@server/interfaces/IRouterCbfunc";
+import { SimpleNAck } from "@server/modules/SimpleNAck";
+import { db } from "@server/controllers/Databases/NGCDatabase";
 import { IServerState } from "@shared/interface/IServerState";
 
 export const UserInfoFunc : IRouterCbFunc = function(req, res){

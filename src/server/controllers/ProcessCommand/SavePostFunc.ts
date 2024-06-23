@@ -1,8 +1,8 @@
-import { IRouterCbFunc } from "../interfaces/IRouterCbfunc";
-import { WriteFile } from "../modules/WriteFile"
-import { TransObjIntoHash } from "../modules/TransObjIntoHash";
-import { SimpleNAck } from "../modules/SimpleNAck";
-import { db } from "../modules/NGCDatabase";
+import { IRouterCbFunc } from "../../interfaces/IRouterCbfunc";
+import { WriteFile } from "../../modules/WriteFile"
+import { TransObjIntoHash } from "../../modules/TransObjIntoHash";
+import { SimpleNAck } from "../../modules/SimpleNAck";
+import { db } from "../Databases/NGCDatabase";
 import { IData } from "@shared/interface/IData";
 import { Data } from "@shared/modules/Data";
 
