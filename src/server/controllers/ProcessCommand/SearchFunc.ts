@@ -3,7 +3,7 @@ import { IRouterCbFunc } from "../../interfaces/IRouterCbfunc";
 import { db } from "../Databases/NGCDatabase";
 import { StringToNumber } from "@shared/modules/StringToNumber";
 import { IDbColumn } from "../../interfaces/IDbColumn";
-import { ReadJsonFiles } from "../../modules/ReadJSONFile"
+import { ReadJsonFiles } from "../../modules/FileIO/ReadJSONFile"
 import { IData } from "@shared/interface/IData";
 import { ICommandData } from "@shared/interface/ICommand";
 import { SortArrObj } from "@server/modules/SortArrObj";
