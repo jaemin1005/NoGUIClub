@@ -1,5 +1,5 @@
 import { IRouterCbFunc } from "@server/interfaces/IRouterCbfunc";
-import { SimpleNAck } from "@server/modules/SimpleNAck";
+import { SimpleNAck } from "@server/modules/Response/SimpleNAck";
 import { db } from "@server/controllers/Databases/NGCDatabase";
 import { IServerState } from "@shared/interface/IServerState";
 
