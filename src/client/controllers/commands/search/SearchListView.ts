@@ -1,6 +1,6 @@
 import { Data } from "@shared/modules/Data"
-import { mapDOM } from "../../../modules/GetDOM"
-import { CreateElement } from "../../../modules/CreateElement";
+import { mapDOM } from "../../../modules/DOM/GetDOM"
+import { CreateElement } from "../../../modules/DOM/CreateElement";
 import { searchListStyleMap } from "../../../styles/SearchListStyle";
 import { theme } from "@client/modules/Theme";
 
