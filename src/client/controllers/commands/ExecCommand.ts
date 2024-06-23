@@ -1,7 +1,7 @@
 import { ExecCreateCmd } from "./create/ExecCreateCommand";
 import { ICommandData } from "@shared/interface/ICommand";
 import { ExecSearchCmd } from "./search/ExecSearchCommand";
-import { ArrStringOnView } from "../ArrStringOnView";
+import { ArrStringOnView } from "../DOMController/ArrStringOnView";
 import { helpCommandLine } from "./help/ArrStringAboutHelp";
 
 //TODO 제네릭으로 수정하기.. Hmm
