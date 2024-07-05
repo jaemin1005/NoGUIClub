@@ -4,9 +4,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = 'style-loader';
+const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
-
+const dotenv = require('dotenv').config();
 
 const config = {
     entry: './src/client/Client.ts',
@@ -21,6 +22,9 @@ const config = {
         }),
         new HtmlInlineScriptPlugin(HtmlWebpackPlugin, [/bundle\.js$/]),
         new CleanWebpackPlugin(),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(dotenv.parsed)
+        }),
     ],
     module: {
         rules: [
