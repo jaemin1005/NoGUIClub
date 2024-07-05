@@ -17,6 +17,7 @@ import { customDate } from "@client/modules/CustomDate";
 import { serverState } from "@client/controllers/GetServerState";
 import { SearchCmdIndexedDB } from "@client/controllers/IndexedDBController/SearchCmdIndexedDB";
 import { POSTFetchReturnObj } from "@client/modules/Request/POSTFetchReturnObj";
+import { EnumEnv } from "@client/modules/Enum/EnumEnv";
 
 export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
 
@@ -101,7 +102,7 @@ export class SearchKeyboardEvent extends CommandKeyboardEvent<"input">{
       this.commandData.command.value = this.nCurPage.toString();
 
       const data = serverState.MySQLConnect === false ? await SearchCmdIndexedDB(this.commandData) :
-        await POSTFetchReturnObj<IData[]>("/search", JSON.stringify(this.commandData));
+        await POSTFetchReturnObj<IData[]>(EnumEnv.SERVER_URL!, "/search", JSON.stringify(this.commandData));
 
       if(data === null || data.length === 0){
         this.nCurPage = nTempPage;

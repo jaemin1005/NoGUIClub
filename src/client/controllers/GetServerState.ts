@@ -1,3 +1,4 @@
+import { EnumEnv } from "@client/modules/Enum/EnumEnv"
 import { browserName } from "@client/modules/GetUsingBrowser"
 import { osName } from "@client/modules/GetUsingOS"
 import { POSTFetch } from "@client/modules/Request/POSTFetch"
@@ -13,7 +14,7 @@ const userInfo : IUserInfo = {
   osName : osName
 }
 
-await new Promise((resolve,reject) => POSTFetch("/userinfo", JSON.stringify(userInfo), async (res)  => {
+await new Promise((resolve,reject) => POSTFetch(EnumEnv.SERVER_URL!, "/userinfo", JSON.stringify(userInfo), async (res)  => {
   const data = await res.json() as IServerState
   let key : keyof typeof data
 
