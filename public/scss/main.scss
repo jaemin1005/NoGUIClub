@@ -9,6 +9,11 @@ $--px-left-margin-header : 10px;
   padding: 0px;
 }
 
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
 .text-center-wrapper{
   width: min-content;
   height: min-content;
