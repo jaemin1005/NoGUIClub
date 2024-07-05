@@ -9,6 +9,10 @@ import { SearchListView } from "./SearchListView";
 
 /** Search 명령어가 성공했을 떄 콜백되는 메소드 */
 export async function SearchSuccessCbFunc(data : IData[], commandData : ICommandData){
+
+  //TODO 글이 없을 떄, 사용자에게 알림이 필요할까?
+  if(data.length === 0) return;
+
   const elem = mapDOM.GetDOM("command-text")! as HTMLInputElement;
   ClearView(mapDOM.GetDOM("main-view")!);
   const keyboardEvent = new SearchKeyboardEvent(elem, commandData);
