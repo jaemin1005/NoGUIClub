@@ -10,3 +10,7 @@ resources/post/*
 .env
 babel
 webpack
+.firebaserc
+firebase.json
+.firebase
+.github
