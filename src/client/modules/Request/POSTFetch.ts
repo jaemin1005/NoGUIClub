@@ -1,7 +1,5 @@
-export async function POSTFetch(url : string, data : string, callback? : IResponseCbFunc, errCallback? : IResponseCbFunc){
-  const host = window.location.origin + url; 
-
-  let res = await fetch(host,{ 
+export async function POSTFetch(host: string, url : string, data : string, callback? : IResponseCbFunc, errCallback? : IResponseCbFunc){
+  let res = await fetch(host+url,{ 
     method : "POST",
     headers : {
       'Content-Type': 'application/json'
