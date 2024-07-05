@@ -4,6 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isProduction = process.env.NODE_ENV == 'production';
 const stylesHandler = 'style-loader';
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 
 
@@ -18,7 +19,8 @@ const config = {
             template: 'index.html',
             inject: "body"
         }),
-        new HtmlInlineScriptPlugin(HtmlWebpackPlugin, [/bundle\.js$/])
+        new HtmlInlineScriptPlugin(HtmlWebpackPlugin, [/bundle\.js$/]),
+        new CleanWebpackPlugin(),
     ],
     module: {
         rules: [
