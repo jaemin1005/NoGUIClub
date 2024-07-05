@@ -14,15 +14,13 @@ const userInfo : IUserInfo = {
   osName : osName
 }
 
-await new Promise((resolve,reject) => POSTFetch(EnumEnv.SERVER_URL!, "/userinfo", JSON.stringify(userInfo), async (res)  => {
+await POSTFetch(EnumEnv.SERVER_URL!, "/userinfo", JSON.stringify(userInfo), async (res) => {
   const data = await res.json() as IServerState
   let key : keyof typeof data
 
   for(key in data){
     serverState[key] = data[key];
   }
-
-  resolve(null);
-}, () => {reject()}))
+});
 
 export {serverState};
