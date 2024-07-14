@@ -1,3 +1,6 @@
+------ 배포 주소 -------
+https://noguiclub.web.app/
+
 ------ 실행 방법 -------
 1) npm webpack : client파일을 번들링 작업을 해준다.
 2) npm run start : 서버 ON
